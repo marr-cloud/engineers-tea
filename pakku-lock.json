@@ -250,7 +250,7 @@
         {
             "pakku_id": "pGEsSu1Hcvp5kdnR",
             "type": "MOD",
-            "side": "BOTH",
+            "side": "SERVER",
             "slug": {
                 "modrinth": "chunky"
             },
@@ -368,7 +368,7 @@
         {
             "pakku_id": "GFmnWfblcTAL51Bb",
             "type": "MOD",
-            "side": "SERVER",
+            "side": "BOTH",
             "slug": {
                 "modrinth": "create"
             },
@@ -615,7 +615,7 @@
         {
             "pakku_id": "v6jegRMTDoV6gnro",
             "type": "MOD",
-            "side": "SERVER",
+            "side": "BOTH",
             "slug": {
                 "modrinth": "dungeons-and-taverns"
             },
@@ -727,7 +727,7 @@
         {
             "pakku_id": "onCNg9G7I5P63PCE",
             "type": "MOD",
-            "side": "SERVER",
+            "side": "BOTH",
             "slug": {
                 "modrinth": "explorify"
             },
@@ -862,7 +862,7 @@
         {
             "pakku_id": "pBnxlv64VGNkEnax",
             "type": "MOD",
-            "side": "CLIENT",
+            "side": "BOTH",
             "slug": {
                 "modrinth": "geckolib"
             },
@@ -1564,6 +1564,48 @@
             ]
         },
         {
+            "pakku_id": "ge5GfTdsau1AyWjl",
+            "pakku_links": [
+                "wMpilkRlVnKN82sk"
+            ],
+            "type": "MOD",
+            "side": "CLIENT",
+            "slug": {
+                "modrinth": "reeses-sodium-options"
+            },
+            "name": {
+                "modrinth": "Reese's Sodium Options"
+            },
+            "id": {
+                "modrinth": "Bh37bMuy"
+            },
+            "files": [
+                {
+                    "type": "modrinth",
+                    "file_name": "reeses-sodium-options-neoforge-2.2.4+mc1.21.1.jar",
+                    "mc_versions": [
+                        "1.21.1"
+                    ],
+                    "loaders": [
+                        "neoforge"
+                    ],
+                    "release_type": "release",
+                    "url": "https://cdn.modrinth.com/data/Bh37bMuy/versions/XjF2IkL8/reeses-sodium-options-neoforge-2.2.4+mc1.21.1.jar",
+                    "id": "XjF2IkL8",
+                    "parent_id": "Bh37bMuy",
+                    "hashes": {
+                        "sha512": "a99d41a41ca83376c4fa29ed22a99e98288a7e9a4749fbf6d3724b9804b8e66648e267c6851a53d040069fdc2d889f8205cbb444bee10a35be840d13fc9ed477",
+                        "sha1": "e9e6d101b31acb51539141937ad5b069ff2ccc4d"
+                    },
+                    "required_dependencies": [
+                        "AANobbMI"
+                    ],
+                    "size": 258894,
+                    "date_published": "2026-09-16T00:49:19.288855Z"
+                }
+            ]
+        },
+        {
             "pakku_id": "MHJxANG8HPcSyFOy",
             "type": "MOD",
             "side": "BOTH",
@@ -1677,6 +1719,48 @@
                     "required_dependencies": [],
                     "size": 1292934,
                     "date_published": "2026-08-28T20:55:02.593669Z"
+                }
+            ]
+        },
+        {
+            "pakku_id": "ZaSfRdUi2PScIXaX",
+            "pakku_links": [
+                "wMpilkRlVnKN82sk"
+            ],
+            "type": "MOD",
+            "side": "CLIENT",
+            "slug": {
+                "modrinth": "sodium-extra"
+            },
+            "name": {
+                "modrinth": "Sodium Extra"
+            },
+            "id": {
+                "modrinth": "PtjYWJkn"
+            },
+            "files": [
+                {
+                    "type": "modrinth",
+                    "file_name": "sodium-extra-neoforge-0.9.5+mc1.21.1.jar",
+                    "mc_versions": [
+                        "1.21.1"
+                    ],
+                    "loaders": [
+                        "neoforge"
+                    ],
+                    "release_type": "release",
+                    "url": "https://cdn.modrinth.com/data/PtjYWJkn/versions/T819dLGI/sodium-extra-neoforge-0.9.5+mc1.21.1.jar",
+                    "id": "T819dLGI",
+                    "parent_id": "PtjYWJkn",
+                    "hashes": {
+                        "sha512": "1f213565e110e39a3e70ce5327f31448b301d2365f7ea281e06535169fd088f7d635370db7417adc927b1278eaefd75c77def7519395408ed0f86f6be240c076",
+                        "sha1": "6ca433df0ad08ce8413582e75dcae7619414a068"
+                    },
+                    "required_dependencies": [
+                        "AANobbMI"
+                    ],
+                    "size": 483373,
+                    "date_published": "2026-10-25T16:34:13.657975Z"
                 }
             ]
         },
@@ -1804,7 +1888,7 @@
         {
             "pakku_id": "GTvJAE2aTQF4tpqA",
             "type": "MOD",
-            "side": "CLIENT",
+            "side": "BOTH",
             "slug": {
                 "modrinth": "xaeros-minimap"
             },
@@ -1842,7 +1926,7 @@
         {
             "pakku_id": "SNQ9B2ZYiuOVDUUr",
             "type": "MOD",
-            "side": "CLIENT",
+            "side": "BOTH",
             "slug": {
                 "modrinth": "xaeros-world-map"
             },

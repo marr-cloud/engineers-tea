@@ -7,23 +7,21 @@ Chunky (server-only, already in the pack) generates the chunks ahead of time; a 
 ## Steps
 
 1. Start the server with the release you will play: `task server:up`.
-2. Run the commands through RCON (itzg enables it). From the repo root:
+2. Run the commands through RCON (itzg enables it; the container is named after the Docker project):
 
     ```sh
-    docker compose -f server/compose.yaml exec minecraft rcon-cli "chunky world minecraft:overworld"
-    docker compose -f server/compose.yaml exec minecraft rcon-cli "chunky center 0 0"
-    docker compose -f server/compose.yaml exec minecraft rcon-cli "chunky radius 3000"
-    docker compose -f server/compose.yaml exec minecraft rcon-cli "chunky start"
+    docker exec engineers-tea-minecraft-1 rcon-cli "chunky world minecraft:overworld"
+    docker exec engineers-tea-minecraft-1 rcon-cli "chunky center 0 0"
+    docker exec engineers-tea-minecraft-1 rcon-cli "chunky radius 3000"
+    docker exec engineers-tea-minecraft-1 rcon-cli "chunky start"
     ```
-
-    In Git Bash prefix each line with `MSYS_NO_PATHCONV=1`.
 
 3. Follow progress with `task server:logs`. Pause with `rcon-cli "chunky pause"` and resume another night with `rcon-cli "chunky continue"`; progress survives restarts.
 4. When the Overworld is done, repeat step 2 for the Nether with `chunky world minecraft:the_nether` and radius `400`. The End has no chapter boss, so it is generated live when players go there.
 5. Set the borders. The vanilla border is a diameter, so it is twice the radius:
 
     ```sh
-    docker compose -f server/compose.yaml exec minecraft rcon-cli "worldborder set 6000"
+    docker exec engineers-tea-minecraft-1 rcon-cli "worldborder set 6000"
     ```
 
     Vanilla shares one border across dimensions, scaled by their coordinate scale: with `6000` in the Overworld the Nether border is `750` (radius 375), which is why the Nether radius above is `400`. A bigger Nether needs a bigger Overworld border.

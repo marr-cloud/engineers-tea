@@ -49,6 +49,7 @@ server/backups/
 /.github/agents/kubejs-*.agent.md
 /config/sodium-options.json
 /config/sodium-fingerprint.json
+/config/sodium-extra-options.json
 /config/spark/tmp-client/
 # Crash Assistant examples, regenerated when missing
 /config/crash_assistant/scripts/log_analysis/example.jexl
