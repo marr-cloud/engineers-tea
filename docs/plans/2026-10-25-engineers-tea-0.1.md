@@ -227,3 +227,9 @@
 - [ ] **Step 2:** On `main`: `mise exec -- task release -- 0.1.0`; watch the release workflow until the GitHub release has the `.mrpack`.
 - [ ] **Step 3:** The user creates the Modrinth project `engineers-tea` and uploads the 0.1.0 `.mrpack` locally (`docs/guides/first-modrinth-release.md` in the repo); add the token and project id as repo secrets only if the user wants CI publishing for 0.2+.
 - [ ] **Step 4:** Remove the test world, `task server:up` with the release, pregenerate following `docs/guides/pregenerate-world.md` overnight, set the world border, and take a backup (`server/backups/`). Expected: `/spark health` is normal and the border sits at the pregenerated edge.
+
+## Follow-ups (found during execution, not part of 0.1)
+
+- **Report the Odyssey Quests bug upstream** (ask Mauricio before posting; it is public under his account): in Heracles 2.0.0-2.0.3 the NeoForge (and Fabric) client never calls `HeraclesClient.init()`, so `Heracles.registryAccessSupplier` is null on the client and `SyncQuestsPacket.decode` throws when a player joins a dedicated server before opening any singleplayer world ("Failed to decode packet 'clientbound/minecraft:custom_payload'"). Suggested fix: call `HeraclesClient.init()` from `HeraclesNeoForgeClient.onClientSetup` (and the Fabric client entry). Repo: terrarium-earth/Heracles, branch `1.21.1`. When a fixed release ships, remove `kubejs/client_scripts/heracles_fix.js`.
+- **BastionPack KubeJS guide**: document that Rhino shares one binding for `const`/`let` loop variables across iterations, so event handlers created inside a loop must be registered through a function (see `kubejs/server_scripts/boss_keys.js`).
+- **BastionPack `.gitignore`**: add `/config/sodium-extra-options.json` next to the Sodium entries.
