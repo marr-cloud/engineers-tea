@@ -1,5 +1,5 @@
 {
-    "name": "BastionPack",
+    "name": "Engineer's Tea",
     "version": "0.0.0-dev",
     "overrides": [
         "config",
@@ -12,5 +12,7 @@
             "side": "CLIENT",
             "export": false
         }
-    }
+    },
+    "author": "meitrix8208",
+    "description": "A relaxed Create pack: build, brew, explore dungeons and beat bosses with friends."
 }

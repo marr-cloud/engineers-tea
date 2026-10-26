@@ -18,6 +18,11 @@ import { parseGithubRemote } from "./lib/modrinth.ts";
 import { run } from "./lib/exec.ts";
 
 const real = join(import.meta.dirname, "..");
+// These tests copy the template's own files as fixtures, so they only make sense before
+// `task init`; in a pack made from the template they are skipped.
+const initialized =
+    JSON.parse(readFileSync(join(real, "pakku.json"), "utf8")).name !== "BastionPack";
+const templateTest = initialized ? test.skip : test;
 let root: string;
 beforeEach(() => {
     root = mkdtempSync(join(tmpdir(), "init-test-"));
@@ -48,7 +53,7 @@ const answers = {
 };
 const read = (f: string) => readFileSync(join(root, f), "utf8");
 
-test("applyInit rewrites everything for a name with spaces and apostrophe", () => {
+templateTest("applyInit rewrites everything for a name with spaces and apostrophe", () => {
     applyInit(root, answers);
     const cfg = JSON.parse(read("pakku.json"));
     assert.equal(cfg.name, "Engineer's Tea");
@@ -73,14 +78,14 @@ test("applyInit rewrites everything for a name with spaces and apostrophe", () =
     assert.match(env, /^# MODRINTH_MODPACK=\/modpacks\//m);
 });
 
-test("without a slug the README has no Modrinth link and .env.example is untouched", () => {
+templateTest("without a slug the README has no Modrinth link and .env.example is untouched", () => {
     const before = read("server/.env.example");
     applyInit(root, { name: "Plain", author: "A", description: "d", creators: "Ann" });
     assert.doesNotMatch(read("README.md"), /modrinth\.com\/modpack/);
     assert.equal(read("server/.env.example"), before);
 });
 
-test("second run is refused unless forced", () => {
+templateTest("second run is refused unless forced", () => {
     applyInit(root, answers);
     assert.throws(
         () => applyInit(root, { ...answers, name: "Other" }),
@@ -92,7 +97,7 @@ test("second run is refused unless forced", () => {
     assert.equal(JSON.parse(read("pakku.json")).name, "Other");
 });
 
-test("invalid answers are rejected before touching anything", () => {
+templateTest("invalid answers are rejected before touching anything", () => {
     for (const bad of [
         { name: " " },
         { name: "a\nb" },
@@ -140,7 +145,7 @@ test("parseInitArgs reads flags", () => {
     assert.throws(() => parseInitArgs(["--name"]), BastionError);
 });
 
-test("a failed write leaves pakku.json untouched and the repo re-runnable", () => {
+templateTest("a failed write leaves pakku.json untouched and the repo re-runnable", () => {
     rmSync(join(root, ".pakku"), { recursive: true });
     assert.throws(
         () => applyInit(root, answers),
@@ -155,43 +160,52 @@ test("a failed write leaves pakku.json untouched and the repo re-runnable", () =
 const ca = "config/crash_assistant/config.toml";
 const KEYS = /^\s*(help_link|formulation_type|modpack_name|modpack_creators) =/;
 
-test("Crash Assistant config gets creators, link and GitHub wording; the rest is untouched", () => {
-    const before = read(ca);
-    applyInit(root, answers);
-    const after = read(ca);
-    assert.match(after, /^\thelp_link = "https:\/\/github\.com\/ann\/engineers-tea\/issues"\r?$/m);
-    assert.match(after, /^\tformulation_type = "GITHUB"\r?$/m);
-    assert.match(after, /^\tmodpack_name = "Engineer's Tea"\r?$/m);
-    assert.match(after, /^\tmodpack_creators = \["Ann_1", "bob"\]\r?$/m);
-    const rest = (s: string) => s.split("\n").filter((l) => !KEYS.test(l));
-    assert.deepEqual(rest(after), rest(before));
-});
+templateTest(
+    "Crash Assistant config gets creators, link and GitHub wording; the rest is untouched",
+    () => {
+        const before = read(ca);
+        applyInit(root, answers);
+        const after = read(ca);
+        assert.match(
+            after,
+            /^\thelp_link = "https:\/\/github\.com\/ann\/engineers-tea\/issues"\r?$/m,
+        );
+        assert.match(after, /^\tformulation_type = "GITHUB"\r?$/m);
+        assert.match(after, /^\tmodpack_name = "Engineer's Tea"\r?$/m);
+        assert.match(after, /^\tmodpack_creators = \["Ann_1", "bob"\]\r?$/m);
+        const rest = (s: string) => s.split("\n").filter((l) => !KEYS.test(l));
+        assert.deepEqual(rest(after), rest(before));
+    },
+);
 
-test("Crash Assistant: other links keep DISCORD, values are escaped, no link keeps the placeholder", () => {
-    applyInit(root, {
-        ...answers,
-        name: String.raw`Say "hi" \o/`,
-        helpLink: "https://discord.gg/abc",
-    });
-    const a = read(ca);
-    assert.match(a, /^\thelp_link = "https:\/\/discord\.gg\/abc"\r?$/m);
-    assert.match(a, /^\tformulation_type = "DISCORD"\r?$/m);
-    assert.ok(a.includes("\tmodpack_name = " + String.raw`"Say \"hi\" \\o/"`));
+templateTest(
+    "Crash Assistant: other links keep DISCORD, values are escaped, no link keeps the placeholder",
+    () => {
+        applyInit(root, {
+            ...answers,
+            name: String.raw`Say "hi" \o/`,
+            helpLink: "https://discord.gg/abc",
+        });
+        const a = read(ca);
+        assert.match(a, /^\thelp_link = "https:\/\/discord\.gg\/abc"\r?$/m);
+        assert.match(a, /^\tformulation_type = "DISCORD"\r?$/m);
+        assert.ok(a.includes("\tmodpack_name = " + String.raw`"Say \"hi\" \\o/"`));
 
-    const { helpLink: _drop, ...noLink } = answers;
-    cpSync(join(real, ca), join(root, ca));
-    applyInit(root, noLink, { force: true });
-    assert.match(read(ca), /^\thelp_link = "CHANGE_ME"\r?$/m);
-});
+        const { helpLink: _drop, ...noLink } = answers;
+        cpSync(join(real, ca), join(root, ca));
+        applyInit(root, noLink, { force: true });
+        assert.match(read(ca), /^\thelp_link = "CHANGE_ME"\r?$/m);
+    },
+);
 
-test("a missing Crash Assistant config is skipped", () => {
+templateTest("a missing Crash Assistant config is skipped", () => {
     rmSync(join(root, ca));
     applyInit(root, answers);
     assert.equal(existsSync(join(root, ca)), false);
     assert.equal(JSON.parse(read("pakku.json")).name, "Engineer's Tea");
 });
 
-test("invalid creators leave the Crash Assistant config untouched", () => {
+templateTest("invalid creators leave the Crash Assistant config untouched", () => {
     const before = read(ca);
     assert.throws(() => applyInit(root, { ...answers, creators: "x" }), BastionError);
     assert.equal(read(ca), before);
