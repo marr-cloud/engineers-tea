@@ -1,1 +1,10 @@
-{}
+{
+    "item.engineers_tea.wrought_core": "Wrought Core",
+    "item.engineers_tea.glacial_heart": "Glacial Heart",
+    "item.engineers_tea.gauntlet_core": "Gauntlet Core",
+    "item.engineers_tea.infernal_ember": "Infernal Ember",
+    "tooltip.engineers_tea.wrought_core": "Dropped by the Ferrous Wroughtnaut. Unlocks Dark Matter and chapter 3.",
+    "tooltip.engineers_tea.glacial_heart": "Dropped by Frostmaw. Unlocks EMC collectors and chapter 4.",
+    "tooltip.engineers_tea.gauntlet_core": "Dropped by the Nether Gauntlet. Unlocks Red Matter, flight and chapter 5.",
+    "tooltip.engineers_tea.infernal_ember": "Dropped by the final boss. The last ingredient for the Engineer's Tea."
+}

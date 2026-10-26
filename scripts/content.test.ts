@@ -36,6 +36,12 @@ test("findRegisteredItems returns engineers_tea ids and ignores other namespaces
     assert.deepEqual(findRegisteredItems(src), ["wrought_core", "glacial_heart"]);
 });
 
+test("ids listed in an array and created in a loop are found", () => {
+    const src = `const IDS = [["engineers_tea:wrought_core", "uncommon"], ["engineers_tea:glacial_heart", "rare"]];
+for (const [id] of IDS) e.create(id);`;
+    assert.deepEqual(findRegisteredItems(src), ["wrought_core", "glacial_heart"]);
+});
+
 test("a consistent pack has no problems", () => {
     assert.deepEqual(checkContent(root), []);
 });

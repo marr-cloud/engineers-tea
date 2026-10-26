@@ -9,10 +9,14 @@ const TEXTURE_DIR = `kubejs/assets/${NAMESPACE}/textures/item`;
 const LANGS = ["en_us", "es_es", "es_mx"];
 const QUESTS_DIR = "config/heracles/quests";
 
-/** Ids passed to `.create('engineers_tea:<id>')` in a startup script, without the namespace. */
+/**
+ * `engineers_tea:<id>` string literals in a startup script, without the namespace. Startup
+ * scripts only name our ids to register them, so any literal counts (direct `.create()` calls
+ * and id lists created in a loop alike).
+ */
 export function findRegisteredItems(source: string): string[] {
-    const re = new RegExp(String.raw`\.create\(\s*['"]${NAMESPACE}:([a-z0-9_/]+)['"]`, "g");
-    return [...source.matchAll(re)].map((m) => m[1] ?? "");
+    const re = new RegExp(String.raw`['"\`]${NAMESPACE}:([a-z0-9_/]+)['"\`]`, "g");
+    return [...new Set([...source.matchAll(re)].map((m) => m[1] ?? ""))];
 }
 
 function files(dir: string, ext: string, out: string[] = []): string[] {
@@ -83,7 +87,7 @@ export function checkContent(root: string): string[] {
 }
 
 if (import.meta.main) {
-    await main(async () => {
+    main(async () => {
         const problems = checkContent(repoRoot());
         if (problems.length > 0) {
             throw new BastionError(
