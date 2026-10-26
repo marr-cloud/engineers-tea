@@ -1,0 +1,147 @@
+name: Release
+
+on:
+    push:
+        tags: ["[0-9]+.[0-9]+.[0-9]+*"]
+
+permissions:
+    contents: write
+
+concurrency:
+    group: release-${{ github.ref }}
+    cancel-in-progress: false
+
+jobs:
+    release:
+        runs-on: ubuntu-latest
+        timeout-minutes: 60
+        env:
+            TAG: ${{ github.ref_name }}
+            BUILD_SERVERPACK: ${{ vars.BUILD_SERVERPACK == 'true' && 'true' || 'false' }}
+        steps:
+            - uses: actions/checkout@v7.0.1
+              with:
+                  fetch-depth: 0
+
+            - uses: jdx/mise-action@v5.2.2
+
+            - name: Cache Pakku downloads
+              uses: actions/cache@v6.1.0
+              with:
+                  path: build/.cache
+                  key: pakku-${{ runner.os }}-${{ hashFiles('pakku-lock.json') }}
+                  restore-keys: |
+                      pakku-${{ runner.os }}-
+
+            - run: pnpm install --frozen-lockfile
+
+            - run: task setup
+
+            - name: Build
+              run: task build VERSION="$TAG" SERVERPACK="$BUILD_SERVERPACK"
+
+            - name: Server smoke test
+              run: task server:smoke
+              timeout-minutes: 20
+
+            - name: Write release notes
+              run: node scripts/release-notes.ts "$TAG" --out build/release-notes.md
+
+            - name: Detect prerelease
+              id: kind
+              run: |
+                  node --input-type=module -e '
+                    import { isPrerelease } from "./scripts/lib/semver.ts";
+                    console.log(`prerelease=${isPrerelease(process.env.TAG ?? "")}`);
+                  ' >> "$GITHUB_OUTPUT"
+
+            - name: Create GitHub Release
+              id: ghrelease
+              uses: softprops/action-gh-release@v3.0.3
+              with:
+                  tag_name: ${{ github.ref_name }}
+                  name: ${{ github.ref_name }}
+                  body_path: build/release-notes.md
+                  prerelease: ${{ steps.kind.outputs.prerelease == 'true' }}
+                  fail_on_unmatched_files: true
+                  files: |
+                      build/modrinth/*.mrpack
+                      ${{ env.BUILD_SERVERPACK == 'true' && 'build/serverpack/*.zip' || '' }}
+
+            - name: Publish to Modrinth
+              id: modrinth
+              env:
+                  MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
+                  MODRINTH_PROJECT_ID: ${{ vars.MODRINTH_PROJECT_ID }}
+              run: |
+                  if [ -z "$MODRINTH_TOKEN" ] || [ -z "$MODRINTH_PROJECT_ID" ]; then
+                    echo "::notice::Skipping Modrinth upload: set the MODRINTH_TOKEN secret and the MODRINTH_PROJECT_ID variable to enable it."
+                    exit 0
+                  fi
+                  if ! task publish:modrinth -- --version "$TAG" --skip-existing; then
+                    echo "::error::Modrinth upload failed, but the GitHub Release already exists. Re-run this job (versions already on Modrinth are skipped), or run 'task build VERSION=$TAG' then 'task publish:modrinth -- --version $TAG' locally. See docs/troubleshooting.md#publish-failed"
+                    exit 1
+                  fi
+
+            - name: Notify Discord
+              if: ${{ !cancelled() && steps.ghrelease.outcome == 'success' }}
+              env:
+                  MODRINTH_OUTCOME: ${{ steps.modrinth.outcome }}
+                  DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+                  MODRINTH_PROJECT_ID: ${{ vars.MODRINTH_PROJECT_ID }}
+                  MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
+                  RELEASE_URL: ${{ github.server_url }}/${{ github.repository }}/releases/tag/${{ github.ref_name }}
+              run: |
+                  if [ -z "$DISCORD_WEBHOOK" ]; then
+                    echo "::notice::Skipping Discord notification: set the DISCORD_WEBHOOK secret to enable it."
+                    exit 0
+                  fi
+                  name=$(jq -r '.name' pakku.json)
+                  links="GitHub: $RELEASE_URL"
+                  if [ "$MODRINTH_OUTCOME" = "success" ] && [ -n "$MODRINTH_TOKEN" ] && [ -n "$MODRINTH_PROJECT_ID" ]; then
+                    links="$links"$'\n'"Modrinth: https://modrinth.com/project/$MODRINTH_PROJECT_ID/version/$TAG"
+                  fi
+                  notes=$(cat build/release-notes.md)
+                  head="**$name $TAG** is out!"$'\n\n'
+                  tail=$'\n\n'"$links"
+                  suffix=$'\n'"... (truncated, full notes: $RELEASE_URL)"
+                  budget=$((2000 - ${#head} - ${#tail} - ${#suffix}))
+                  if [ $((${#head} + ${#notes} + ${#tail})) -gt 2000 ]; then
+                    notes="${notes:0:$budget}$suffix"
+                  fi
+                  jq -n --arg content "$head$notes$tail" '{content: $content, allowed_mentions: {parse: []}}' \
+                    | curl --fail-with-body -sS -H "Content-Type: application/json" -d @- "$DISCORD_WEBHOOK" \
+                    || echo "::warning::Discord notification failed; the release itself is unaffected."
+
+            - name: Locate CurseForge pack
+              id: curseforge
+              if: ${{ vars.ENABLE_CURSEFORGE == 'true' }}
+              env:
+                  CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}
+                  CURSEFORGE_ID: ${{ vars.CURSEFORGE_ID }}
+              run: |
+                  if [ -z "$CURSEFORGE_TOKEN" ] || [ -z "$CURSEFORGE_ID" ]; then
+                    echo "::notice::Skipping CurseForge upload: set the CURSEFORGE_TOKEN secret and the CURSEFORGE_ID variable."
+                    exit 0
+                  fi
+                  zip=$(ls build/curseforge/*.zip 2>/dev/null | head -n 1 || true)
+                  if [ -z "$zip" ]; then
+                    echo "::error::ENABLE_CURSEFORGE is true but the build produced no build/curseforge/*.zip. The pack needs target: multiplatform; see docs/guides/enable-curseforge.md"
+                    exit 1
+                  fi
+                  echo "zip=$zip" >> "$GITHUB_OUTPUT"
+                  server=$(ls build/serverpack/*.zip 2>/dev/null | head -n 1 || true)
+                  echo "server=$server" >> "$GITHUB_OUTPUT"
+
+            - name: Upload to CurseForge
+              if: ${{ steps.curseforge.outputs.zip != '' }}
+              uses: Xikaro/upload-curseforge-modpack-action@1.1.1
+              with:
+                  api-token: ${{ secrets.CURSEFORGE_TOKEN }}
+                  project-id: ${{ vars.CURSEFORGE_ID }}
+                  modpack-path: ${{ steps.curseforge.outputs.zip }}
+                  modpack-server-path: ${{ steps.curseforge.outputs.server }}
+                  changelog: ${{ github.server_url }}/${{ github.repository }}/releases/tag/${{ github.ref_name }}
+                  changelog-format: text
+                  display-name: ${{ github.ref_name }}
+                  release-type: ${{ steps.kind.outputs.prerelease == 'true' && 'beta' || 'release' }}

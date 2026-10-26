@@ -1,0 +1,64 @@
+name: Bug Report
+description: Create a report to help reproduce and fix the issue
+title: "[Bug]: "
+labels: ["bug"]
+body:
+    - type: markdown
+      attributes:
+          value: |
+              Search existing issues first, and check whether the bug exists on the latest release.
+              If it is about one specific mod, test with only that mod; if it still happens, report it to the mod's authors.
+              Run `task doctor` if you have the repository, and include any findings.
+    - type: input
+      id: pack-version
+      attributes:
+          label: Pack version
+          description: The version shown in your launcher (for example 1.2.0).
+          placeholder: "1.2.0"
+      validations:
+          required: true
+    - type: dropdown
+      id: launcher
+      attributes:
+          label: Launcher
+          options:
+              - Modrinth App
+              - Prism Launcher
+              - Other
+      validations:
+          required: true
+    - type: dropdown
+      id: where
+      attributes:
+          label: Where does it happen?
+          options:
+              - Client (singleplayer)
+              - Client joining a server
+              - Server
+      validations:
+          required: true
+    - type: textarea
+      id: summary
+      attributes:
+          label: Issue summary
+          description: Briefly explain your issue, for example "When I do X, Y happens instead of Z".
+      validations:
+          required: true
+    - type: textarea
+      id: reproduction
+      attributes:
+          label: Reproduction steps
+          description: Steps to reproduce it. Issues without them may be closed.
+          placeholder: |
+              1. Craft X
+              2. It does not result in Y
+      validations:
+          required: true
+    - type: input
+      id: log
+      attributes:
+          label: Log link
+          description: Upload `logs/latest.log` (and the crash report, if any) to https://mclo.gs and paste the link.
+          placeholder: https://mclo.gs/...
+      validations:
+          required: true

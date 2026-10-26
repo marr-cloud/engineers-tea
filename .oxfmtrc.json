@@ -1,0 +1,17 @@
+{
+    "tabWidth": 4,
+    "ignorePatterns": [
+        "pakku-lock.json",
+        "config/**",
+        "defaultconfigs/**",
+        "kubejs/config/**",
+        "kubejs/probe/**",
+        ".probe/**",
+        "docs/superpowers/**",
+        ".superpowers/**",
+        "pnpm-lock.yaml",
+        "pakku.json",
+        ".pakku/**",
+        "LICENSE.md"
+    ]
+}

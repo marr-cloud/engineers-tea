@@ -1,0 +1,119 @@
+name: Mod updates
+
+# Weekly: update all mods with Pakku, build, boot a real server from the new
+# pack, and open/update ONE pull request with the mod diff and smoke result.
+#
+# Repo setting required: Settings > Actions > General > "Allow GitHub Actions
+# to create and approve pull requests" must be enabled when using GITHUB_TOKEN.
+#
+# Token: PRs created with GITHUB_TOKEN do not trigger other workflows, so the
+# smoke test runs inside this workflow. If the optional BOT_TOKEN secret is
+# set (PAT or app token), it is used instead and the PR also triggers CI.
+
+on:
+    schedule:
+        - cron: "0 6 * * 1"
+    workflow_dispatch:
+
+permissions:
+    contents: write
+    pull-requests: write
+
+concurrency:
+    group: mod-updates
+    cancel-in-progress: false
+
+jobs:
+    update:
+        runs-on: ubuntu-latest
+        timeout-minutes: 45
+        steps:
+            - uses: actions/checkout@v7.0.1
+              with:
+                  fetch-depth: 0
+
+            - uses: jdx/mise-action@v5.2.2
+
+            - name: Cache Pakku downloads
+              uses: actions/cache@v6.1.0
+              with:
+                  path: build/.cache
+                  key: pakku-${{ runner.os }}-${{ hashFiles('pakku-lock.json') }}
+                  restore-keys: |
+                      pakku-${{ runner.os }}-
+
+            - run: pnpm install --frozen-lockfile
+
+            - run: task setup
+
+            - name: Update all mods
+              timeout-minutes: 10
+              run: |
+                  mkdir -p build
+                  cp pakku-lock.json build/old-pakku-lock.json
+                  # stdin from /dev/null so any prompt fails fast instead of hanging
+                  java -jar pakku.jar update -a < /dev/null
+
+            - name: Detect changes
+              id: changes
+              run: |
+                  if git diff --quiet -- pakku-lock.json; then
+                      echo "changed=false" >> "$GITHUB_OUTPUT"
+                      echo "::notice::No mod updates"
+                  else
+                      echo "changed=true" >> "$GITHUB_OUTPUT"
+                  fi
+
+            - name: Build pack
+              if: steps.changes.outputs.changed == 'true'
+              run: task build
+
+            - name: Server smoke test
+              id: smoke
+              if: steps.changes.outputs.changed == 'true'
+              continue-on-error: true
+              run: task server:smoke
+              timeout-minutes: 20
+
+            - name: Write PR body
+              if: steps.changes.outputs.changed == 'true'
+              env:
+                  SMOKE_OUTCOME: ${{ steps.smoke.outcome }}
+                  RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+              run: |
+                  java -jar pakku.jar diff --markdown=build/mod-diff.md --header-size=4 \
+                      build/old-pakku-lock.json pakku-lock.json
+                  {
+                      echo "Automated weekly mod updates."
+                      echo
+                      if [ -s build/mod-diff.md ]; then
+                          cat build/mod-diff.md
+                      else
+                          echo "No mod-level changes reported by Pakku."
+                      fi
+                      echo
+                      if [ "$SMOKE_OUTCOME" = "success" ]; then
+                          echo "Server smoke test: ✅ passed"
+                      else
+                          echo "Server smoke test: ❌ failed (see run $RUN_URL)"
+                      fi
+                  } > build/pr-body.md
+
+            - name: Open or update pull request
+              id: pr
+              if: steps.changes.outputs.changed == 'true'
+              uses: peter-evans/create-pull-request@v8.1.1
+              with:
+                  token: ${{ secrets.BOT_TOKEN || github.token }}
+                  branch: bot/mod-updates
+                  title: "chore(mods): weekly mod updates"
+                  commit-message: "chore(mods): weekly mod updates"
+                  body-path: build/pr-body.md
+                  add-paths: |
+                      pakku-lock.json
+                      pakku.json
+                  delete-branch: true
+
+            - name: Explain pull request failure
+              if: failure() && steps.pr.outcome == 'failure'
+              run: echo "::error::Could not open the PR; see docs/troubleshooting.md#actions-cannot-create-pull-requests"

@@ -1,0 +1,41 @@
+# BastionPack local server: itzg/minecraft-server built from the SAME .mrpack friends install,
+# plus a playit.gg agent for a public address. Run through `task server:up`.
+name: bastionpack
+
+services:
+    minecraft:
+        image: itzg/minecraft-server:java21
+        restart: unless-stopped
+        environment:
+            EULA: "TRUE"
+            TYPE: MODRINTH
+            MEMORY: ${MEMORY:-4G}
+            MODRINTH_MODPACK: ${MODRINTH_MODPACK}
+            MODRINTH_VERSION: ${MODRINTH_VERSION:-}
+            MODRINTH_EXCLUDE_FILES: ${MODRINTH_EXCLUDE_FILES:-}
+            MODRINTH_FORCE_SYNCHRONIZE: ${MODRINTH_FORCE_SYNCHRONIZE:-false}
+            # authlib-injector agent for Ely.by and other auth servers; empty = Mojang (see AUTH_SERVER in .env).
+            JVM_OPTS: ${AUTH_JVM_OPTS:-}
+        volumes:
+            # A named volume, not a bind mount: on Docker Desktop for Windows a bind mount makes the
+            # NeoForge install and every world save cross the Windows/Linux boundary (minutes, not seconds).
+            - minecraft-data:/data
+            - ../build/modrinth:/modpacks:ro
+            - ../build/authlib:/authlib:ro
+        ports:
+            - "25565:25565"
+        tty: true
+        stdin_open: true
+
+    playit:
+        # Same compose network as `minecraft`: in the playit dashboard set the tunnel's
+        # local address to `minecraft:25565` (no host networking, which Docker Desktop lacks).
+        image: ghcr.io/playit-cloud/playit-agent:1.0.8
+        restart: unless-stopped
+        environment:
+            SECRET_KEY: ${PLAYIT_SECRET_KEY}
+        depends_on:
+            - minecraft
+
+volumes:
+    minecraft-data:

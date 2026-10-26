@@ -1,0 +1,17 @@
+name: Feature Request
+description: Suggest something to improve the pack
+title: "[Feature]: "
+labels: ["feature"]
+body:
+    - type: markdown
+      attributes:
+          value: |
+              Search existing issues first. For a mod suggestion, link its Modrinth page and check it supports Minecraft 1.21.1 on NeoForge.
+    - type: textarea
+      id: summary
+      attributes:
+          label: Suggestion
+          description: What is it, and how does it improve the pack? Images welcome.
+          placeholder: I think the pack could be improved by...
+      validations:
+          required: true

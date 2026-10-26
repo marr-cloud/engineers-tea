@@ -1,0 +1,8 @@
+{
+    "$schema": "./node_modules/oxlint/configuration_schema.json",
+    "jsPlugins": ["./oxlint-plugin/bastion.js"],
+    "categories": { "correctness": "error" },
+    "rules": { "bastion/no-empty-recipe-remove": "error" },
+    "overrides": [{ "files": ["kubejs/**"], "rules": { "no-undef": "off" } }],
+    "ignorePatterns": ["kubejs/probe/**", ".probe/**", "node_modules/**", "build/**"]
+}

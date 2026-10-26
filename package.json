@@ -1,0 +1,15 @@
+{
+    "name": "bastionpack",
+    "private": true,
+    "type": "module",
+    "dependencies": {
+        "fflate": "0.8.3"
+    },
+    "devDependencies": {
+        "@types/node": "26.6.5",
+        "oxfmt": "0.74.0",
+        "oxlint": "1.89.0",
+        "typescript": "7.0.2"
+    },
+    "packageManager": "pnpm@12.15.0"
+}

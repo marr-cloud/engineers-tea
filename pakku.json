@@ -1,0 +1,16 @@
+{
+    "name": "BastionPack",
+    "version": "0.0.0-dev",
+    "overrides": [
+        "config",
+        "defaultconfigs",
+        "kubejs",
+        "!kubejs/probe/**"
+    ],
+    "projects": {
+        "probejs": {
+            "side": "CLIENT",
+            "export": false
+        }
+    }
+}

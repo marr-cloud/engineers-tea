@@ -1,0 +1,4 @@
+// Fixture: must pass.
+ServerEvents.recipes((event) => {
+    event.remove({ output: "minecraft:stick" });
+});

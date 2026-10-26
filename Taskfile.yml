@@ -1,0 +1,146 @@
+version: "3"
+
+vars:
+    PAKKU_VERSION: "1.5.0"
+    PAKKU_SHA256: "4fdbd8423698b59d19d71195dcde1b65da6432b6d67ea38fc74aefd9062aa201"
+    AUTHLIB_VERSION: "1.2.8"
+    AUTHLIB_SHA256: "9c7f4343e6c82034958ffb48c14a2cb0c85928be7283103ce17da00c6d5a7b10"
+
+tasks:
+    setup:
+        desc: Install npm deps, download the pinned Pakku, fetch mods and enable git hooks
+        env:
+            PAKKU_VERSION: "{{.PAKKU_VERSION}}"
+            PAKKU_SHA256: "{{.PAKKU_SHA256}}"
+        cmds:
+            - node scripts/setup.ts
+
+    init:
+        desc: "Turn this template into your pack (names, README, changelog): task init [-- --name N --author A --description D --modrinth-slug S --force]"
+        interactive: true
+        cmds:
+            - node scripts/init.ts {{.CLI_ARGS}}
+
+    build:
+        desc: "Build the .mrpack (dev version, or VERSION=x.y.z; SERVERPACK=true adds the server zip)"
+        env:
+            VERSION: "{{.VERSION}}"
+            SERVERPACK: "{{.SERVERPACK}}"
+        cmds:
+            - node scripts/build.ts
+
+    test:
+        desc: Run script and lint-plugin tests
+        cmds:
+            - node --test "scripts/**/*.test.ts" "oxlint-plugin/*.test.ts"
+
+    check:
+        desc: Check formatting, lint, types and docs
+        cmds:
+            - pnpm exec oxfmt --check
+            - pnpm exec oxlint --ignore-pattern "oxlint-plugin/fixtures/**"
+            - pnpm exec tsc --noEmit
+            - node scripts/check-docs.ts
+
+    fix:
+        desc: Apply formatting and lint fixes
+        cmds:
+            - pnpm exec oxfmt
+            - pnpm exec oxlint --fix --ignore-pattern "oxlint-plugin/fixtures/**"
+
+    check:types:
+        desc: Type-check KubeJS scripts against ProbeJS typings (opt-in, needs .probe/)
+        cmds:
+            - pnpm exec tsc -p kubejs/jsconfig.json --noEmit --allowJs --checkJs
+
+    check:staged:
+        desc: Pre-commit check (runs the full check; it is fast)
+        cmds:
+            - task: check
+
+    hooks:install:
+        desc: Enable the repo git hooks (.githooks)
+        cmds:
+            - git config core.hooksPath .githooks
+
+    setup:prism:
+        desc: Write instance.cfg and mmc-pack.json for this Prism instance (clone must be in <Prism>/instances/<name>/minecraft)
+        cmds:
+            - node scripts/prism.ts setup
+
+    prism:sync:
+        desc: Rewrite only mmc-pack.json from pakku-lock.json (after a Minecraft/NeoForge bump)
+        cmds:
+            - node scripts/prism.ts sync
+
+    mods:find:
+        desc: "Search Modrinth for mods compatible with this pack: task mods:find -- <query>"
+        cmds:
+            - node scripts/mods.ts find {{.CLI_ARGS}}
+
+    mods:add:
+        desc: "Add mods (Pakku) and show the lock diff: task mods:add -- <slug...>"
+        cmds:
+            - node scripts/mods.ts add {{.CLI_ARGS}}
+
+    mods:rm:
+        desc: "Remove mods (Pakku) and show the lock diff: task mods:rm -- <slug...>"
+        cmds:
+            - node scripts/mods.ts rm {{.CLI_ARGS}}
+
+    mods:update:
+        desc: "Update all mods, or only the given ones: task mods:update [-- <slug...>]"
+        cmds:
+            - node scripts/mods.ts update {{.CLI_ARGS}}
+
+    release:
+        desc: "Cut a release: validate, promote the changelog, commit, tag and push: task release -- x.y.z"
+        cmds:
+            - node scripts/release.ts {{.CLI_ARGS}}
+
+    doctor:
+        desc: Diagnose the environment and the pack (tools, pakku.jar, Prism, mod sides, overrides)
+        env:
+            PAKKU_VERSION: "{{.PAKKU_VERSION}}"
+            PAKKU_SHA256: "{{.PAKKU_SHA256}}"
+        cmds:
+            - node scripts/doctor.ts
+
+    publish:modrinth:
+        desc: "Upload the built .mrpack to Modrinth: task publish:modrinth -- [--dry-run] [--version x.y.z]"
+        dotenv: [".env"]
+        cmds:
+            - node scripts/publish-modrinth.ts {{.CLI_ARGS}}
+
+    server:up:
+        desc: Build the dev pack and start the local server + playit (needs server/.env; task server:up SERVER_USE_ENV_PACK=true skips the local build)
+        env:
+            SERVER_USE_ENV_PACK: "{{.SERVER_USE_ENV_PACK}}"
+            AUTHLIB_VERSION: "{{.AUTHLIB_VERSION}}"
+            AUTHLIB_SHA256: "{{.AUTHLIB_SHA256}}"
+        cmds:
+            - node scripts/server.ts up
+
+    server:down:
+        desc: Stop the local server and playit
+        cmds:
+            - node scripts/server.ts down
+
+    server:logs:
+        desc: Follow the server logs
+        cmds:
+            - node scripts/server.ts logs
+
+    server:update:
+        desc: Pull images and recreate the server with a forced modpack resync
+        env:
+            SERVER_USE_ENV_PACK: "{{.SERVER_USE_ENV_PACK}}"
+            AUTHLIB_VERSION: "{{.AUTHLIB_VERSION}}"
+            AUTHLIB_SHA256: "{{.AUTHLIB_SHA256}}"
+        cmds:
+            - node scripts/server.ts update
+
+    server:smoke:
+        desc: Boot a throwaway server from the built .mrpack and wait for the ready line
+        cmds:
+            - node scripts/smoke.ts
