@@ -11,6 +11,27 @@
         "probejs": {
             "side": "CLIENT",
             "export": false
+        },
+        "create": {
+            "side": "BOTH"
+        },
+        "dungeons-and-taverns": {
+            "side": "BOTH"
+        },
+        "explorify": {
+            "side": "BOTH"
+        },
+        "geckolib": {
+            "side": "BOTH"
+        },
+        "xaeros-minimap": {
+            "side": "BOTH"
+        },
+        "xaeros-world-map": {
+            "side": "BOTH"
+        },
+        "chunky": {
+            "side": "SERVER"
         }
     },
     "author": "meitrix8208",
