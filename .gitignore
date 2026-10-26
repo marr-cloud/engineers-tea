@@ -117,3 +117,8 @@ $RECYCLE.BIN/
 .DS_Store
 .AppleDouble
 .LSOverride
+# Generated on launch by mods (per-player or regenerated defaults)
+/XaeroWaypoints_BACKUP*/
+/config/ProjectE/common.toml
+/config/ProjectE/mapping.toml
+/config/ProjectE/server.toml
