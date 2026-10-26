@@ -6,5 +6,6 @@
     "tooltip.engineers_tea.wrought_core": "Lo suelta el Ferrous Wroughtnaut. Desbloquea la Materia Oscura y el capítulo 3.",
     "tooltip.engineers_tea.glacial_heart": "Lo suelta Frostmaw. Desbloquea los colectores de EMC y el capítulo 4.",
     "tooltip.engineers_tea.gauntlet_core": "Lo suelta el Nether Gauntlet. Desbloquea la Materia Roja, el vuelo y el capítulo 5.",
-    "tooltip.engineers_tea.infernal_ember": "La suelta el jefe final. El último ingrediente del Engineer's Tea."
+    "tooltip.engineers_tea.infernal_ember": "La suelta el jefe final. El último ingrediente del Engineer's Tea.",
+    "message.engineers_tea.key_drop": "¡%s ha caído! Cada jugador cercano recibe: %s."
 }
