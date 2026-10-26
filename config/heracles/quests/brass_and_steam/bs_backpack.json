@@ -1,11 +1,7 @@
 {
     "display": {
-        "title": {
-            "translate": "quest.engineers_tea.brass_and_steam.bs_backpack.title"
-        },
-        "subtitle": {
-            "translate": "quest.engineers_tea.brass_and_steam.bs_backpack.subtitle"
-        },
+        "title": "{\"translate\":\"quest.engineers_tea.brass_and_steam.bs_backpack.title\"}",
+        "subtitle": "{\"translate\":\"quest.engineers_tea.brass_and_steam.bs_backpack.subtitle\"}",
         "description": [
             "A backpack carries the loot home. If you die, your grave keeps everything until you return.",
             "",

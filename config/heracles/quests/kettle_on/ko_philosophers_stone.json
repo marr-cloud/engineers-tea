@@ -1,11 +1,7 @@
 {
     "display": {
-        "title": {
-            "translate": "quest.engineers_tea.kettle_on.ko_philosophers_stone.title"
-        },
-        "subtitle": {
-            "translate": "quest.engineers_tea.kettle_on.ko_philosophers_stone.subtitle"
-        },
+        "title": "{\"translate\":\"quest.engineers_tea.kettle_on.ko_philosophers_stone.title\"}",
+        "subtitle": "{\"translate\":\"quest.engineers_tea.kettle_on.ko_philosophers_stone.subtitle\"}",
         "description": [
             "ProjectE speeds up the boring parts: iron, copper, zinc, wood, stone and crops.",
             "",

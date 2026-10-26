@@ -1,11 +1,7 @@
 {
     "display": {
-        "title": {
-            "translate": "quest.engineers_tea.kettle_on.ko_first_meal.title"
-        },
-        "subtitle": {
-            "translate": "quest.engineers_tea.kettle_on.ko_first_meal.subtitle"
-        },
+        "title": "{\"translate\":\"quest.engineers_tea.kettle_on.ko_first_meal.title\"}",
+        "subtitle": "{\"translate\":\"quest.engineers_tea.kettle_on.ko_first_meal.subtitle\"}",
         "description": [
             "Cook a vegetable soup. A full stomach makes every trip safer.",
             "",

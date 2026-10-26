@@ -83,3 +83,16 @@ test("a malformed lang file is reported, not thrown", () => {
     const problems = checkContent(root);
     assert.ok(problems.some((p) => p.includes("es_es.json")));
 });
+
+// Odyssey Quests stores titles as a JSON text component inside a string.
+test("a translate key inside a stringified title is checked", () => {
+    put(
+        "config/heracles/quests/kettle_on/welcome.json",
+        JSON.stringify({
+            display: { title: JSON.stringify({ translate: "quest.engineers_tea.missing" }) },
+        }),
+    );
+    const problems = checkContent(root);
+    assert.equal(problems.length, 1);
+    assert.match(problems[0] ?? "", /quest\.engineers_tea\.missing/);
+});

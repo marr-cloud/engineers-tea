@@ -1,11 +1,7 @@
 {
     "display": {
-        "title": {
-            "translate": "quest.engineers_tea.brass_and_steam.bs_central_kitchen.title"
-        },
-        "subtitle": {
-            "translate": "quest.engineers_tea.brass_and_steam.bs_central_kitchen.subtitle"
-        },
+        "title": "{\"translate\":\"quest.engineers_tea.brass_and_steam.bs_central_kitchen.title\"}",
+        "subtitle": "{\"translate\":\"quest.engineers_tea.brass_and_steam.bs_central_kitchen.subtitle\"}",
         "description": [
             "With Create: Central Kitchen, deployers cut ingredients and blaze burners heat cooking pots. Build a line that cooks a meal on its own.",
             "",

@@ -1,11 +1,7 @@
 {
     "display": {
-        "title": {
-            "translate": "quest.engineers_tea.kettle_on.ko_cutting_board.title"
-        },
-        "subtitle": {
-            "translate": "quest.engineers_tea.kettle_on.ko_cutting_board.subtitle"
-        },
+        "title": "{\"translate\":\"quest.engineers_tea.kettle_on.ko_cutting_board.title\"}",
+        "subtitle": "{\"translate\":\"quest.engineers_tea.kettle_on.ko_cutting_board.subtitle\"}",
         "description": [
             "Cut crops, fish and meat into ingredients. Later, Create deployers can do it for you.",
             "",

@@ -1,11 +1,7 @@
 {
     "display": {
-        "title": {
-            "translate": "quest.engineers_tea.brass_and_steam.bs_prepare.title"
-        },
-        "subtitle": {
-            "translate": "quest.engineers_tea.brass_and_steam.bs_prepare.subtitle"
-        },
+        "title": "{\"translate\":\"quest.engineers_tea.brass_and_steam.bs_prepare.title\"}",
+        "subtitle": "{\"translate\":\"quest.engineers_tea.brass_and_steam.bs_prepare.subtitle\"}",
         "description": [
             "It sleeps in a chamber underground. It is slow but hits hard: dodge the axe swing, then hit it while it recovers. Go as a group, bring meals, a shield and a waystone nearby. Tick the box when you are ready.",
             "",

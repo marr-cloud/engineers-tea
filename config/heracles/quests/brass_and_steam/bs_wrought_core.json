@@ -1,11 +1,7 @@
 {
     "display": {
-        "title": {
-            "translate": "quest.engineers_tea.brass_and_steam.bs_wrought_core.title"
-        },
-        "subtitle": {
-            "translate": "quest.engineers_tea.brass_and_steam.bs_wrought_core.subtitle"
-        },
+        "title": "{\"translate\":\"quest.engineers_tea.brass_and_steam.bs_wrought_core.title\"}",
+        "subtitle": "{\"translate\":\"quest.engineers_tea.brass_and_steam.bs_wrought_core.subtitle\"}",
         "description": [
             "Dark Matter now needs a Wrought Core. Burn one in the transmutation table to learn it, then make more from EMC. Chapter 3 arrives in the next update.",
             "",

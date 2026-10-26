@@ -11,7 +11,9 @@ const BOSS_KEYS = {
     "cataclysm:ignis": "engineers_tea:infernal_ember",
 };
 
-for (const [boss, key] of Object.entries(BOSS_KEYS)) {
+// Rhino shares one binding for `const` loop variables across iterations, so a handler created
+// inside the loop would see the last key. Registering through a function gives each its own.
+function giveKeyOnDeath(boss, key) {
     EntityEvents.death(boss, (event) => {
         const entity = event.entity;
         // A plain loop: the players list is a Java list, not a JS array.
@@ -31,3 +33,5 @@ for (const [boss, key] of Object.entries(BOSS_KEYS)) {
         );
     });
 }
+
+for (const boss of Object.keys(BOSS_KEYS)) giveKeyOnDeath(boss, BOSS_KEYS[boss]);

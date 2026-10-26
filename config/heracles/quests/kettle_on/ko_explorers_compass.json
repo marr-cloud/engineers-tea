@@ -1,11 +1,7 @@
 {
     "display": {
-        "title": {
-            "translate": "quest.engineers_tea.kettle_on.ko_explorers_compass.title"
-        },
-        "subtitle": {
-            "translate": "quest.engineers_tea.kettle_on.ko_explorers_compass.subtitle"
-        },
+        "title": "{\"translate\":\"quest.engineers_tea.kettle_on.ko_explorers_compass.title\"}",
+        "subtitle": "{\"translate\":\"quest.engineers_tea.kettle_on.ko_explorers_compass.subtitle\"}",
         "description": [
             "The compass points to any structure: dungeons, temples, mineshafts and boss arenas.",
             "",

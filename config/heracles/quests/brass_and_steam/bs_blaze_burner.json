@@ -1,11 +1,7 @@
 {
     "display": {
-        "title": {
-            "translate": "quest.engineers_tea.brass_and_steam.bs_blaze_burner.title"
-        },
-        "subtitle": {
-            "translate": "quest.engineers_tea.brass_and_steam.bs_blaze_burner.subtitle"
-        },
+        "title": "{\"translate\":\"quest.engineers_tea.brass_and_steam.bs_blaze_burner.title\"}",
+        "subtitle": "{\"translate\":\"quest.engineers_tea.brass_and_steam.bs_blaze_burner.subtitle\"}",
         "description": [
             "A blaze burner heats mixers and pots. Catch a blaze in the Nether with an empty burner.",
             "",

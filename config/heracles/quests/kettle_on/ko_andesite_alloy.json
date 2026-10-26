@@ -1,11 +1,7 @@
 {
     "display": {
-        "title": {
-            "translate": "quest.engineers_tea.kettle_on.ko_andesite_alloy.title"
-        },
-        "subtitle": {
-            "translate": "quest.engineers_tea.kettle_on.ko_andesite_alloy.subtitle"
-        },
+        "title": "{\"translate\":\"quest.engineers_tea.kettle_on.ko_andesite_alloy.title\"}",
+        "subtitle": "{\"translate\":\"quest.engineers_tea.kettle_on.ko_andesite_alloy.subtitle\"}",
         "description": [
             "Andesite alloy has no EMC on purpose: Create parts are built, not transmuted.",
             "",

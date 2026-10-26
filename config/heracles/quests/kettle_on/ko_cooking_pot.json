@@ -1,11 +1,7 @@
 {
     "display": {
-        "title": {
-            "translate": "quest.engineers_tea.kettle_on.ko_cooking_pot.title"
-        },
-        "subtitle": {
-            "translate": "quest.engineers_tea.kettle_on.ko_cooking_pot.subtitle"
-        },
+        "title": "{\"translate\":\"quest.engineers_tea.kettle_on.ko_cooking_pot.title\"}",
+        "subtitle": "{\"translate\":\"quest.engineers_tea.kettle_on.ko_cooking_pot.subtitle\"}",
         "description": [
             "Cooking pot meals give Comfort and Nourishment: your best preparation for a boss fight.",
             "",

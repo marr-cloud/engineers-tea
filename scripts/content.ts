@@ -29,8 +29,15 @@ function files(dir: string, ext: string, out: string[] = []): string[] {
     return out;
 }
 
+/** `translate` keys in a JSON value, including text components stored as strings (quest titles). */
 function translateKeys(value: unknown, out: string[] = []): string[] {
-    if (Array.isArray(value)) for (const v of value) translateKeys(v, out);
+    if (typeof value === "string" && value.trimStart().startsWith("{")) {
+        try {
+            translateKeys(JSON.parse(value), out);
+        } catch {
+            // plain text that happens to start with "{"
+        }
+    } else if (Array.isArray(value)) for (const v of value) translateKeys(v, out);
     else if (value !== null && typeof value === "object") {
         for (const [k, v] of Object.entries(value)) {
             if (k === "translate" && typeof v === "string") out.push(v);

@@ -1,11 +1,7 @@
 {
     "display": {
-        "title": {
-            "translate": "quest.engineers_tea.kettle_on.ko_water_wheel.title"
-        },
-        "subtitle": {
-            "translate": "quest.engineers_tea.kettle_on.ko_water_wheel.subtitle"
-        },
+        "title": "{\"translate\":\"quest.engineers_tea.kettle_on.ko_water_wheel.title\"}",
+        "subtitle": "{\"translate\":\"quest.engineers_tea.kettle_on.ko_water_wheel.subtitle\"}",
         "description": [
             "A water wheel turns your first machines. Use Ponder (hold W over an item) to learn any Create block.",
             "",

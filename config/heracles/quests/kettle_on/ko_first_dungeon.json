@@ -1,11 +1,7 @@
 {
     "display": {
-        "title": {
-            "translate": "quest.engineers_tea.kettle_on.ko_first_dungeon.title"
-        },
-        "subtitle": {
-            "translate": "quest.engineers_tea.kettle_on.ko_first_dungeon.subtitle"
-        },
+        "title": "{\"translate\":\"quest.engineers_tea.kettle_on.ko_first_dungeon.title\"}",
+        "subtitle": "{\"translate\":\"quest.engineers_tea.kettle_on.ko_first_dungeon.subtitle\"}",
         "description": [
             "Explore a dungeon and open its chests. Lootr gives every player their own loot, so nobody misses out. Tick the box when you are back.",
             "",

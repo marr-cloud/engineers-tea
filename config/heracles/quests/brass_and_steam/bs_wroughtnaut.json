@@ -1,11 +1,7 @@
 {
     "display": {
-        "title": {
-            "translate": "quest.engineers_tea.brass_and_steam.bs_wroughtnaut.title"
-        },
-        "subtitle": {
-            "translate": "quest.engineers_tea.brass_and_steam.bs_wroughtnaut.subtitle"
-        },
+        "title": "{\"translate\":\"quest.engineers_tea.brass_and_steam.bs_wroughtnaut.title\"}",
+        "subtitle": "{\"translate\":\"quest.engineers_tea.brass_and_steam.bs_wroughtnaut.subtitle\"}",
         "description": [
             "Defeat the Ferrous Wroughtnaut. Everyone nearby gets a Wrought Core.",
             "",

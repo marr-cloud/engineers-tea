@@ -1,11 +1,7 @@
 {
     "display": {
-        "title": {
-            "translate": "quest.engineers_tea.kettle_on.ko_transmutation_table.title"
-        },
-        "subtitle": {
-            "translate": "quest.engineers_tea.kettle_on.ko_transmutation_table.subtitle"
-        },
+        "title": "{\"translate\":\"quest.engineers_tea.kettle_on.ko_transmutation_table.title\"}",
+        "subtitle": "{\"translate\":\"quest.engineers_tea.kettle_on.ko_transmutation_table.subtitle\"}",
         "description": [
             "Burn items to earn EMC and learn them. Your farms and Create lines are your EMC income. Power items need boss keys.",
             "",

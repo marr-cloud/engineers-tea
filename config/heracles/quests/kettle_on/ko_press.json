@@ -1,11 +1,7 @@
 {
     "display": {
-        "title": {
-            "translate": "quest.engineers_tea.kettle_on.ko_press.title"
-        },
-        "subtitle": {
-            "translate": "quest.engineers_tea.kettle_on.ko_press.subtitle"
-        },
+        "title": "{\"translate\":\"quest.engineers_tea.kettle_on.ko_press.title\"}",
+        "subtitle": "{\"translate\":\"quest.engineers_tea.kettle_on.ko_press.subtitle\"}",
         "description": [
             "The mechanical press makes sheets. Most of chapter 2 starts here.",
             "",

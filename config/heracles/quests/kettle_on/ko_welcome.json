@@ -1,11 +1,7 @@
 {
     "display": {
-        "title": {
-            "translate": "quest.engineers_tea.kettle_on.ko_welcome.title"
-        },
-        "subtitle": {
-            "translate": "quest.engineers_tea.kettle_on.ko_welcome.subtitle"
-        },
+        "title": "{\"translate\":\"quest.engineers_tea.kettle_on.ko_welcome.title\"}",
+        "subtitle": "{\"translate\":\"quest.engineers_tea.kettle_on.ko_welcome.subtitle\"}",
         "description": [
             "Build at home, explore dungeons, beat a boss, bring its key home and automate it. Five chapters end in the Engineer's Tea.",
             "",
