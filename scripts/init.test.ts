@@ -13,7 +13,7 @@ import { join } from "node:path";
 import { afterEach, beforeEach, test } from "node:test";
 import { BastionError } from "./lib/errors.ts";
 import { freshChangelog } from "./lib/changelog.ts";
-import { applyInit, defaultHelpLink, parseInitArgs } from "./init.ts";
+import { applyInit, composeProjectName, defaultHelpLink, parseInitArgs } from "./init.ts";
 import { parseGithubRemote } from "./lib/modrinth.ts";
 import { run } from "./lib/exec.ts";
 
@@ -32,6 +32,7 @@ beforeEach(() => {
         "README.md",
         ".pakku/prism-overrides/instance.cfg",
         "server/.env.example",
+        "server/compose.yaml",
         "config/crash_assistant/config.toml",
     ]) {
         mkdirSync(join(root, f, ".."), { recursive: true });
@@ -227,4 +228,18 @@ test("defaultHelpLink derives the issues URL from a GitHub origin", async () => 
     assert.equal(await defaultHelpLink(root), "https://github.com/ann/pack/issues");
     await run("git", ["remote", "set-url", "origin", "https://example.com/x/y.git"], { cwd: root });
     assert.equal(await defaultHelpLink(root), undefined);
+});
+
+// Every pack used to inherit `name: bastionpack`, so two packs on one PC shared a Docker project
+// and the same world volume.
+test("composeProjectName makes a Docker-safe name from the pack name", () => {
+    assert.equal(composeProjectName("Engineer's Tea"), "engineers-tea");
+    assert.equal(composeProjectName('Tea, "Deluxe" 2'), "tea-deluxe-2");
+    assert.equal(composeProjectName("!!!"), "minecraft-pack");
+});
+
+templateTest("applyInit names the server's Docker project after the pack", () => {
+    applyInit(root, answers);
+    assert.match(read("server/compose.yaml"), /^name: engineers-tea\r?$/m);
+    assert.doesNotMatch(read("server/compose.yaml"), /bastionpack/);
 });

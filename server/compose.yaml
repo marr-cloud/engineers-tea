@@ -1,6 +1,6 @@
 # BastionPack local server: itzg/minecraft-server built from the SAME .mrpack friends install,
 # plus a playit.gg agent for a public address. Run through `task server:up`.
-name: bastionpack
+name: engineers-tea
 
 services:
     minecraft:

@@ -18,3 +18,5 @@ All notable changes to this modpack are documented here. The format follows [Kee
 - Boss keys (Wrought Core, Glacial Heart, Gauntlet Core, Infernal Ember): every player near a chapter boss gets one when it dies; they show their source and unlock in the tooltip, in English and Spanish.
 - ProjectE on a leash: Dark Matter needs the Wrought Core; EMC collectors, relays and the Harvest Goddess Band need the Glacial Heart; Red Matter, Swiftwolf's Rending Gale (flight) and the Watch of Flowing Time need the Gauntlet Core. Create intermediates (andesite alloy, brass, sheets, mechanisms) have no EMC.
 - Quests for chapter 1 "Kettle On" (11) and chapter 2 "Brass & Steam" (10), ending with the Ferrous Wroughtnaut and its Wrought Core. Titles are translated; descriptions are in English and Spanish.
+- Guides: pregenerating the world with Chunky (`docs/guides/pregenerate-world.md`) and player setup with Ely.by and memory settings.
+- The local server's Docker project is `engineers-tea` (from BastionPack: `task init` no longer leaves it as `bastionpack`).
