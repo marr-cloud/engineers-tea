@@ -1,0 +1,54 @@
+{
+    "display": {
+        "title": "{\"translate\":\"quest.engineers_tea.brass_and_steam.bs_backpack.title\"}",
+        "subtitle": "{\"translate\":\"quest.engineers_tea.brass_and_steam.bs_backpack.subtitle\"}",
+        "description": [
+            "A backpack carries the loot home. If you die, your grave keeps everything until you return.",
+            "",
+            "Una mochila lleva el botín a casa. Si mueres, tu tumba guarda todo hasta que vuelvas."
+        ],
+        "icon": {
+            "type": "heracles:item",
+            "item": {
+                "id": "sophisticatedbackpacks:backpack",
+                "count": 1
+            }
+        },
+        "groups": {
+            "Brass & Steam": {
+                "position": [
+                    120,
+                    40
+                ]
+            }
+        }
+    },
+    "settings": {
+        "individual_progress": true,
+        "hidden": "LOCKED",
+        "unlockNotification": true,
+        "showDependencyArrow": true,
+        "repeatable": false,
+        "autoClaimRewards": false
+    },
+    "dependencies": [
+        "bs_brass"
+    ],
+    "tasks": {
+        "backpack": {
+            "type": "heracles:item",
+            "item": "sophisticatedbackpacks:backpack",
+            "amount": 1,
+            "collection": "AUTOMATIC"
+        }
+    },
+    "rewards": {
+        "leather": {
+            "type": "heracles:item",
+            "item": {
+                "id": "minecraft:leather",
+                "count": 4
+            }
+        }
+    }
+}

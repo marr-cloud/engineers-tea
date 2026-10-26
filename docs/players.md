@@ -8,7 +8,9 @@ Use this when you want to play the pack or join its server, and you do not need 
 - **Prism Launcher**: Add instance, Import from Modrinth (search the pack), or Import and pick a downloaded `.mrpack`.
 - If the pack is not approved on Modrinth yet, download the `.mrpack` from the GitHub Releases page and import that file in Prism or the Modrinth App.
 
-Give the game at least 4 GB of RAM (6 GB for bigger packs). Java 21 is bundled by both launchers.
+Give the game 4 to 5 GB of RAM (instance Settings, Java, Maximum memory). More is not better: it makes garbage collection slower. Java 21 is bundled by both launchers.
+
+The group server uses Ely.by accounts. Use a launcher with Ely.by login (the host uses ElyPrismLauncher, a Prism Launcher build), sign in with your [Ely.by](https://ely.by) account, then import the pack as above.
 
 ## Join the server
 
@@ -18,7 +20,7 @@ Give the game at least 4 GB of RAM (6 GB for bigger packs). Java 21 is bundled b
 
 ## Optional client mods
 
-Purely visual or UI mods that run only on your side are safe to add yourself in the launcher: minimaps, shader support, cosmetic or tooltip mods. Mods that add blocks, items, mobs or recipes must also be on the server, so do not add those. If unsure, ask the host. Remove the extra mods before reporting a bug.
+Purely visual or UI mods that run only on your side are safe to add yourself in the launcher: shader support (Iris, if your graphics card can take it; the pack does not include it), cosmetic or tooltip mods. A minimap is already included. Mods that add blocks, items, mobs or recipes must also be on the server, so do not add those. If unsure, ask the host. Remove the extra mods before reporting a bug.
 
 ## If the game crashes
 

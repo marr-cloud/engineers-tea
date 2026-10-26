@@ -1,0 +1,55 @@
+{
+    "display": {
+        "title": "{\"translate\":\"quest.engineers_tea.brass_and_steam.bs_central_kitchen.title\"}",
+        "subtitle": "{\"translate\":\"quest.engineers_tea.brass_and_steam.bs_central_kitchen.subtitle\"}",
+        "description": [
+            "With Create: Central Kitchen, deployers cut ingredients and blaze burners heat cooking pots. Build a line that cooks a meal on its own.",
+            "",
+            "Con Create: Central Kitchen, los deployers cortan ingredientes y los blaze burners calientan las ollas. Arma una línea que cocine sola."
+        ],
+        "icon": {
+            "type": "heracles:item",
+            "item": {
+                "id": "create:deployer",
+                "count": 1
+            }
+        },
+        "groups": {
+            "Brass & Steam": {
+                "position": [
+                    80,
+                    0
+                ]
+            }
+        }
+    },
+    "settings": {
+        "individual_progress": true,
+        "hidden": "LOCKED",
+        "unlockNotification": true,
+        "showDependencyArrow": true,
+        "repeatable": false,
+        "autoClaimRewards": false
+    },
+    "dependencies": [
+        "bs_blaze_burner",
+        "ko_first_meal"
+    ],
+    "tasks": {
+        "deployer": {
+            "type": "heracles:item",
+            "item": "create:deployer",
+            "amount": 1,
+            "collection": "AUTOMATIC"
+        }
+    },
+    "rewards": {
+        "onions": {
+            "type": "heracles:item",
+            "item": {
+                "id": "farmersdelight:onion",
+                "count": 8
+            }
+        }
+    }
+}

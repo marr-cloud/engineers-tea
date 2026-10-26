@@ -1,0 +1,66 @@
+{
+    "display": {
+        "title": "{\"translate\":\"quest.engineers_tea.brass_and_steam.bs_effect_food.title\"}",
+        "subtitle": "{\"translate\":\"quest.engineers_tea.brass_and_steam.bs_effect_food.subtitle\"}",
+        "description": [
+            "Bring meals that give Nourishment and Comfort to every fight.",
+            "",
+            "Lleva comidas que den Nourishment y Comfort a cada pelea."
+        ],
+        "icon": {
+            "type": "heracles:item",
+            "item": {
+                "id": "farmersdelight:beef_stew",
+                "count": 1
+            }
+        },
+        "groups": {
+            "Brass & Steam": {
+                "position": [
+                    40,
+                    40
+                ]
+            }
+        }
+    },
+    "settings": {
+        "individual_progress": true,
+        "hidden": "LOCKED",
+        "unlockNotification": true,
+        "showDependencyArrow": true,
+        "repeatable": false,
+        "autoClaimRewards": false
+    },
+    "dependencies": [
+        "bs_central_kitchen"
+    ],
+    "tasks": {
+        "stew": {
+            "type": "heracles:item",
+            "item": "farmersdelight:beef_stew",
+            "amount": 1,
+            "collection": "AUTOMATIC"
+        },
+        "chicken": {
+            "type": "heracles:item",
+            "item": "farmersdelight:chicken_soup",
+            "amount": 1,
+            "collection": "AUTOMATIC"
+        },
+        "soup": {
+            "type": "heracles:item",
+            "item": "farmersdelight:vegetable_soup",
+            "amount": 1,
+            "collection": "AUTOMATIC"
+        }
+    },
+    "rewards": {
+        "bowls": {
+            "type": "heracles:item",
+            "item": {
+                "id": "minecraft:bowl",
+                "count": 8
+            }
+        }
+    }
+}

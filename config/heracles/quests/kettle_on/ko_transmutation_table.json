@@ -1,0 +1,54 @@
+{
+    "display": {
+        "title": "{\"translate\":\"quest.engineers_tea.kettle_on.ko_transmutation_table.title\"}",
+        "subtitle": "{\"translate\":\"quest.engineers_tea.kettle_on.ko_transmutation_table.subtitle\"}",
+        "description": [
+            "Burn items to earn EMC and learn them. Your farms and Create lines are your EMC income. Power items need boss keys.",
+            "",
+            "Quema ítems para ganar EMC y aprenderlos. Tus granjas y líneas de Create son tu ingreso de EMC. Los objetos poderosos necesitan llaves de jefe."
+        ],
+        "icon": {
+            "type": "heracles:item",
+            "item": {
+                "id": "projecte:transmutation_table",
+                "count": 1
+            }
+        },
+        "groups": {
+            "Kettle On": {
+                "position": [
+                    80,
+                    40
+                ]
+            }
+        }
+    },
+    "settings": {
+        "individual_progress": true,
+        "hidden": "LOCKED",
+        "unlockNotification": true,
+        "showDependencyArrow": true,
+        "repeatable": false,
+        "autoClaimRewards": false
+    },
+    "dependencies": [
+        "ko_philosophers_stone"
+    ],
+    "tasks": {
+        "table": {
+            "type": "heracles:item",
+            "item": "projecte:transmutation_table",
+            "amount": 1,
+            "collection": "AUTOMATIC"
+        }
+    },
+    "rewards": {
+        "obsidian": {
+            "type": "heracles:item",
+            "item": {
+                "id": "minecraft:obsidian",
+                "count": 4
+            }
+        }
+    }
+}

@@ -1,0 +1,54 @@
+{
+    "display": {
+        "title": "{\"translate\":\"quest.engineers_tea.kettle_on.ko_water_wheel.title\"}",
+        "subtitle": "{\"translate\":\"quest.engineers_tea.kettle_on.ko_water_wheel.subtitle\"}",
+        "description": [
+            "A water wheel turns your first machines. Use Ponder (hold W over an item) to learn any Create block.",
+            "",
+            "Una rueda hidráulica mueve tus primeras máquinas. Usa Ponder (mantén W sobre un ítem) para aprender cualquier bloque de Create."
+        ],
+        "icon": {
+            "type": "heracles:item",
+            "item": {
+                "id": "create:water_wheel",
+                "count": 1
+            }
+        },
+        "groups": {
+            "Kettle On": {
+                "position": [
+                    80,
+                    -40
+                ]
+            }
+        }
+    },
+    "settings": {
+        "individual_progress": true,
+        "hidden": "LOCKED",
+        "unlockNotification": true,
+        "showDependencyArrow": true,
+        "repeatable": false,
+        "autoClaimRewards": false
+    },
+    "dependencies": [
+        "ko_andesite_alloy"
+    ],
+    "tasks": {
+        "wheel": {
+            "type": "heracles:item",
+            "item": "create:water_wheel",
+            "amount": 1,
+            "collection": "AUTOMATIC"
+        }
+    },
+    "rewards": {
+        "cogs": {
+            "type": "heracles:item",
+            "item": {
+                "id": "create:cogwheel",
+                "count": 4
+            }
+        }
+    }
+}

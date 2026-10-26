@@ -1,48 +1,23 @@
-<p align="center"><img src="docs/assets/bastionpack-icon.png" alt="BastionPack icon: a blackstone keep with a gold-framed gate" width="128"></p>
+<p align="center"><img src="docs/assets/engineers-tea-icon.png" alt="Engineer's Tea icon: a glass jug of tea with a brass gear and a mint leaf" width="128"></p>
 
-# BastionPack
+# Engineer's Tea
 
-A Minecraft 1.21.1 NeoForge modpack template for packdevs who publish on **Modrinth**. Reliable, robust, easy to troubleshoot: when something goes wrong, the tooling says what happened and links to the fix.
+A relaxed Create pack: build, brew, explore dungeons and beat bosses with friends.
 
-BastionPack is derived from [PanPack](https://github.com/ThePansmith/PanPack) by ThePansmith (LGPL-3.0). Thanks to the PanPack authors for the original template and ideas.
+## The loop
 
-## Features
+Build a Create factory at home, cook Farmer's Delight meals, explore dungeons and beat a boss. Each boss drops a key for everyone nearby; bring it home, learn it with ProjectE and automate it to unlock the next chapter. Five chapters end in the Engineer's Tea.
 
-- **Modrinth first**: `task build` produces a `.mrpack`; `task release -- x.y.z` tags and CI publishes (GitHub Release, Modrinth, optional Discord). CurseForge is supported but off by default.
-- **One source of truth**: the client pack and the server are built from the same `pakku-lock.json`, so their mod lists cannot diverge.
-- **One command per action**: `task --list` shows everything: setup, add a mod, check, build, run a server, release.
-- **Pinned and verified tools**: Pakku is pinned with a SHA-256; Java, Node and Task come from `mise`.
-- **`task doctor`**: checks your tools, the Prism instance, mod sides against Modrinth and override paths.
-- **Server smoke test** in CI: a real `itzg/minecraft-server` boots the built pack before anything is published.
-- **Weekly mod-update PR** with a readable diff and the smoke-test result.
-- **Local server** with Docker and playit.gg: `task server:up`.
-- **Batteries included**: Sodium, ModernFix, FerriteCore, ImmediatelyFast, EntityCulling, Lithium, KubeJS, JEI, Jade and more.
+Playing on the group server: [docs/players.md](docs/players.md). Hosting it: [docs/guides/local-server-docker.md](docs/guides/local-server-docker.md) and [docs/guides/pregenerate-world.md](docs/guides/pregenerate-world.md).
 
-## 5-minute start
+## Design
 
-Clone into a Prism instance (`<Prism>/instances/<name>/minecraft`), then:
+The pack design is in [docs/design.md](docs/design.md); the current implementation plan is in [docs/plans/](docs/plans/); performance results in [docs/perf/](docs/perf/).
 
-```sh
-mise install
-task setup
-task init
-task setup:prism
-```
+## Install
 
-Then, in your GitHub repository, tick Settings, Actions, General, **Allow GitHub Actions to create and approve pull requests** so the weekly mod-update PR works. Open Prism and press Play. Add a mod with `task mods:add -- <slug>`. Full walkthrough: [docs/getting-started.md](docs/getting-started.md).
+Install with the Modrinth App or Prism Launcher by importing the `.mrpack`. Get it on [Modrinth](https://modrinth.com/modpack/engineers-tea).
 
-## Documentation
+## Built with BastionPack
 
-- [Getting started](docs/getting-started.md), [Concepts](docs/concepts.md), [For players](docs/players.md)
-- [Troubleshooting](docs/troubleshooting.md): every script error links here
-- Guides in [docs/guides/](docs/guides/): [wrong mod side](docs/guides/wrong-mod-side.md), [mod not on Modrinth](docs/guides/mod-not-on-modrinth.md), [local server](docs/guides/local-server-docker.md), [first Modrinth release](docs/guides/first-modrinth-release.md), [KubeJS](docs/guides/kubejs-recipes-and-optional-compat.md), [performance](docs/guides/performance-low-end.md), [switching to EMI](docs/guides/switching-to-emi.md)
-- Reference: [tasks](docs/reference/tasks.md), [workflows](docs/reference/workflows.md), [configuration](docs/reference/configuration.md), [Pakku](docs/reference/pakku.md)
-- AI agents: [AGENTS.md](AGENTS.md). Contributors: [CONTRIBUTING.md](CONTRIBUTING.md)
-
-## License
-
-LGPL-3.0, see [LICENSE.md](LICENSE.md). Packs created from this template choose their own license for their content.
-
-## Credits
-
-[PanPack](https://github.com/ThePansmith/PanPack) by ThePansmith, itself using a build script adapted from TerraFirmaGreg. [Pakku](https://github.com/juraj-hrivnak/Pakku) does the heavy lifting.
+This pack is built from the [BastionPack](https://github.com/marr-cloud/BastionPack) template. See [docs/getting-started.md](docs/getting-started.md) to develop, test and release it.

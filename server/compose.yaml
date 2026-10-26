@@ -1,6 +1,6 @@
 # BastionPack local server: itzg/minecraft-server built from the SAME .mrpack friends install,
 # plus a playit.gg agent for a public address. Run through `task server:up`.
-name: bastionpack
+name: engineers-tea
 
 services:
     minecraft:
@@ -14,6 +14,8 @@ services:
             MODRINTH_VERSION: ${MODRINTH_VERSION:-}
             MODRINTH_EXCLUDE_FILES: ${MODRINTH_EXCLUDE_FILES:-}
             MODRINTH_FORCE_SYNCHRONIZE: ${MODRINTH_FORCE_SYNCHRONIZE:-false}
+            # World seed for a new world (empty = random); see docs/guides/pregenerate-world.md.
+            SEED: ${SEED:-}
             # authlib-injector agent for Ely.by and other auth servers; empty = Mojang (see AUTH_SERVER in .env).
             JVM_OPTS: ${AUTH_JVM_OPTS:-}
         volumes:

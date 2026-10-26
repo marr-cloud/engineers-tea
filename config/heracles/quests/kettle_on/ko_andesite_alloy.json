@@ -1,0 +1,54 @@
+{
+    "display": {
+        "title": "{\"translate\":\"quest.engineers_tea.kettle_on.ko_andesite_alloy.title\"}",
+        "subtitle": "{\"translate\":\"quest.engineers_tea.kettle_on.ko_andesite_alloy.subtitle\"}",
+        "description": [
+            "Andesite alloy has no EMC on purpose: Create parts are built, not transmuted.",
+            "",
+            "La aleación de andesita no tiene EMC a propósito: las piezas de Create se construyen, no se transmutan."
+        ],
+        "icon": {
+            "type": "heracles:item",
+            "item": {
+                "id": "create:andesite_alloy",
+                "count": 1
+            }
+        },
+        "groups": {
+            "Kettle On": {
+                "position": [
+                    40,
+                    -40
+                ]
+            }
+        }
+    },
+    "settings": {
+        "individual_progress": true,
+        "hidden": "LOCKED",
+        "unlockNotification": true,
+        "showDependencyArrow": true,
+        "repeatable": false,
+        "autoClaimRewards": false
+    },
+    "dependencies": [
+        "ko_welcome"
+    ],
+    "tasks": {
+        "alloy": {
+            "type": "heracles:item",
+            "item": "create:andesite_alloy",
+            "amount": 4,
+            "collection": "AUTOMATIC"
+        }
+    },
+    "rewards": {
+        "shafts": {
+            "type": "heracles:item",
+            "item": {
+                "id": "create:shaft",
+                "count": 8
+            }
+        }
+    }
+}

@@ -1,0 +1,54 @@
+{
+    "display": {
+        "title": "{\"translate\":\"quest.engineers_tea.kettle_on.ko_explorers_compass.title\"}",
+        "subtitle": "{\"translate\":\"quest.engineers_tea.kettle_on.ko_explorers_compass.subtitle\"}",
+        "description": [
+            "The compass points to any structure: dungeons, temples, mineshafts and boss arenas.",
+            "",
+            "La brújula apunta a cualquier estructura: mazmorras, templos, minas y arenas de jefes."
+        ],
+        "icon": {
+            "type": "heracles:item",
+            "item": {
+                "id": "explorerscompass:explorerscompass",
+                "count": 1
+            }
+        },
+        "groups": {
+            "Kettle On": {
+                "position": [
+                    40,
+                    80
+                ]
+            }
+        }
+    },
+    "settings": {
+        "individual_progress": true,
+        "hidden": "LOCKED",
+        "unlockNotification": true,
+        "showDependencyArrow": true,
+        "repeatable": false,
+        "autoClaimRewards": false
+    },
+    "dependencies": [
+        "ko_welcome"
+    ],
+    "tasks": {
+        "compass": {
+            "type": "heracles:item",
+            "item": "explorerscompass:explorerscompass",
+            "amount": 1,
+            "collection": "AUTOMATIC"
+        }
+    },
+    "rewards": {
+        "torches": {
+            "type": "heracles:item",
+            "item": {
+                "id": "minecraft:torch",
+                "count": 32
+            }
+        }
+    }
+}

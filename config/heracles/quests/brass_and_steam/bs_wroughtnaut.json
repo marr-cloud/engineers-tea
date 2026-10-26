@@ -1,0 +1,55 @@
+{
+    "display": {
+        "title": "{\"translate\":\"quest.engineers_tea.brass_and_steam.bs_wroughtnaut.title\"}",
+        "subtitle": "{\"translate\":\"quest.engineers_tea.brass_and_steam.bs_wroughtnaut.subtitle\"}",
+        "description": [
+            "Defeat the Ferrous Wroughtnaut. Everyone nearby gets a Wrought Core.",
+            "",
+            "Vence al Ferrous Wroughtnaut. Cada jugador cercano recibe un Núcleo Forjado."
+        ],
+        "icon": {
+            "type": "heracles:item",
+            "item": {
+                "id": "mowziesmobs:wrought_axe",
+                "count": 1
+            }
+        },
+        "groups": {
+            "Brass & Steam": {
+                "position": [
+                    80,
+                    80
+                ]
+            }
+        }
+    },
+    "settings": {
+        "individual_progress": true,
+        "hidden": "LOCKED",
+        "unlockNotification": true,
+        "showDependencyArrow": true,
+        "repeatable": false,
+        "autoClaimRewards": false
+    },
+    "dependencies": [
+        "bs_prepare"
+    ],
+    "tasks": {
+        "boss": {
+            "type": "heracles:kill_entity",
+            "entity": {
+                "type": "mowziesmobs:ferrous_wroughtnaut"
+            },
+            "amount": 1
+        }
+    },
+    "rewards": {
+        "gold": {
+            "type": "heracles:item",
+            "item": {
+                "id": "minecraft:gold_ingot",
+                "count": 8
+            }
+        }
+    }
+}
