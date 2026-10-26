@@ -122,3 +122,12 @@ $RECYCLE.BIN/
 /config/ProjectE/common.toml
 /config/ProjectE/mapping.toml
 /config/ProjectE/server.toml
+/servers.dat
+/servers.dat_old
+/heracles_options.json
+/debug/
+/xaero/
+/config/xaero/
+/config/xaerohud.txt
+/config/xaeropatreon.txt
+/config/chunky/
