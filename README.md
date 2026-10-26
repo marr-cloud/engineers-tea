@@ -1,3 +1,5 @@
+<p align="center"><img src="docs/assets/engineers-tea-icon.png" alt="Engineer's Tea icon: a glass jug of tea with a brass gear and a mint leaf" width="128"></p>
+
 # Engineer's Tea
 
 A relaxed Create pack: build, brew, explore dungeons and beat bosses with friends.

@@ -20,3 +20,4 @@ All notable changes to this modpack are documented here. The format follows [Kee
 - Quests for chapter 1 "Kettle On" (11) and chapter 2 "Brass & Steam" (10), ending with the Ferrous Wroughtnaut and its Wrought Core. Titles are translated; descriptions are in English and Spanish.
 - Guides: pregenerating the world with Chunky (`docs/guides/pregenerate-world.md`) and player setup with Ely.by and memory settings.
 - The local server's Docker project is `engineers-tea` (from BastionPack: `task init` no longer leaves it as `bastionpack`).
+- Pack icon: a glass jug of amber tea with a brass gear and a mint leaf (original pixel art, Aseprite source in `docs/assets/`).
