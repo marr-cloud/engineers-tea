@@ -1,0 +1,56 @@
+{
+    "display": {
+        "title": {
+            "translate": "quest.engineers_tea.brass_and_steam.bs_prepare.title"
+        },
+        "subtitle": {
+            "translate": "quest.engineers_tea.brass_and_steam.bs_prepare.subtitle"
+        },
+        "description": [
+            "It sleeps in a chamber underground. It is slow but hits hard: dodge the axe swing, then hit it while it recovers. Go as a group, bring meals, a shield and a waystone nearby. Tick the box when you are ready.",
+            "",
+            "Duerme en una cámara bajo tierra. Es lento pero pega fuerte: esquiva el hachazo y golpéalo mientras se recupera. Vayan en grupo, con comidas, un escudo y un waystone cerca. Marca la casilla cuando estés listo."
+        ],
+        "icon": {
+            "type": "heracles:item",
+            "item": {
+                "id": "minecraft:shield",
+                "count": 1
+            }
+        },
+        "groups": {
+            "Brass & Steam": {
+                "position": [
+                    40,
+                    80
+                ]
+            }
+        }
+    },
+    "settings": {
+        "individual_progress": true,
+        "hidden": "LOCKED",
+        "unlockNotification": true,
+        "showDependencyArrow": true,
+        "repeatable": false,
+        "autoClaimRewards": false
+    },
+    "dependencies": [
+        "bs_armor",
+        "bs_effect_food"
+    ],
+    "tasks": {
+        "ready": {
+            "type": "heracles:check"
+        }
+    },
+    "rewards": {
+        "arrows": {
+            "type": "heracles:item",
+            "item": {
+                "id": "minecraft:arrow",
+                "count": 32
+            }
+        }
+    }
+}

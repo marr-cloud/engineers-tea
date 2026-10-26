@@ -1,0 +1,76 @@
+{
+    "display": {
+        "title": {
+            "translate": "quest.engineers_tea.brass_and_steam.bs_armor.title"
+        },
+        "subtitle": {
+            "translate": "quest.engineers_tea.brass_and_steam.bs_armor.subtitle"
+        },
+        "description": [
+            "Bosses are fair if you come prepared. A full iron set is the minimum for the Wroughtnaut.",
+            "",
+            "Los jefes son justos si vienes preparado. Un set completo de hierro es lo mínimo para el Wroughtnaut."
+        ],
+        "icon": {
+            "type": "heracles:item",
+            "item": {
+                "id": "minecraft:iron_chestplate",
+                "count": 1
+            }
+        },
+        "groups": {
+            "Brass & Steam": {
+                "position": [
+                    0,
+                    40
+                ]
+            }
+        }
+    },
+    "settings": {
+        "individual_progress": true,
+        "hidden": "LOCKED",
+        "unlockNotification": true,
+        "showDependencyArrow": true,
+        "repeatable": false,
+        "autoClaimRewards": false
+    },
+    "dependencies": [
+        "bs_brass"
+    ],
+    "tasks": {
+        "helmet": {
+            "type": "heracles:item",
+            "item": "minecraft:iron_helmet",
+            "amount": 1,
+            "collection": "AUTOMATIC"
+        },
+        "chestplate": {
+            "type": "heracles:item",
+            "item": "minecraft:iron_chestplate",
+            "amount": 1,
+            "collection": "AUTOMATIC"
+        },
+        "leggings": {
+            "type": "heracles:item",
+            "item": "minecraft:iron_leggings",
+            "amount": 1,
+            "collection": "AUTOMATIC"
+        },
+        "boots": {
+            "type": "heracles:item",
+            "item": "minecraft:iron_boots",
+            "amount": 1,
+            "collection": "AUTOMATIC"
+        }
+    },
+    "rewards": {
+        "shield": {
+            "type": "heracles:item",
+            "item": {
+                "id": "minecraft:shield",
+                "count": 1
+            }
+        }
+    }
+}

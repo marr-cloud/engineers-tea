@@ -1,0 +1,58 @@
+{
+    "display": {
+        "title": {
+            "translate": "quest.engineers_tea.brass_and_steam.bs_blaze_burner.title"
+        },
+        "subtitle": {
+            "translate": "quest.engineers_tea.brass_and_steam.bs_blaze_burner.subtitle"
+        },
+        "description": [
+            "A blaze burner heats mixers and pots. Catch a blaze in the Nether with an empty burner.",
+            "",
+            "Un blaze burner calienta mezcladoras y ollas. Atrapa un blaze en el Nether con un quemador vacío."
+        ],
+        "icon": {
+            "type": "heracles:item",
+            "item": {
+                "id": "create:blaze_burner",
+                "count": 1
+            }
+        },
+        "groups": {
+            "Brass & Steam": {
+                "position": [
+                    40,
+                    0
+                ]
+            }
+        }
+    },
+    "settings": {
+        "individual_progress": true,
+        "hidden": "LOCKED",
+        "unlockNotification": true,
+        "showDependencyArrow": true,
+        "repeatable": false,
+        "autoClaimRewards": false
+    },
+    "dependencies": [
+        "bs_brass"
+    ],
+    "tasks": {
+        "burner": {
+            "type": "heracles:item",
+            "item": "create:blaze_burner",
+            "amount": 1,
+            "collection": "AUTOMATIC"
+        }
+    },
+    "rewards": {
+        "coal": {
+            "type": "heracles:item",
+            "item": {
+                "id": "minecraft:coal_block",
+                "count": 2
+            }
+        }
+    }
+}

@@ -1,0 +1,53 @@
+{
+    "display": {
+        "title": {
+            "translate": "quest.engineers_tea.kettle_on.ko_welcome.title"
+        },
+        "subtitle": {
+            "translate": "quest.engineers_tea.kettle_on.ko_welcome.subtitle"
+        },
+        "description": [
+            "Build at home, explore dungeons, beat a boss, bring its key home and automate it. Five chapters end in the Engineer's Tea.",
+            "",
+            "Construye en casa, explora mazmorras, vence a un jefe, trae su llave y automatízala. Cinco capítulos terminan en el Engineer's Tea."
+        ],
+        "icon": {
+            "type": "heracles:item",
+            "item": {
+                "id": "minecraft:bread",
+                "count": 1
+            }
+        },
+        "groups": {
+            "Kettle On": {
+                "position": [
+                    0,
+                    0
+                ]
+            }
+        }
+    },
+    "settings": {
+        "individual_progress": true,
+        "hidden": "LOCKED",
+        "unlockNotification": true,
+        "showDependencyArrow": true,
+        "repeatable": false,
+        "autoClaimRewards": false
+    },
+    "dependencies": [],
+    "tasks": {
+        "ok": {
+            "type": "heracles:check"
+        }
+    },
+    "rewards": {
+        "bread": {
+            "type": "heracles:item",
+            "item": {
+                "id": "minecraft:bread",
+                "count": 8
+            }
+        }
+    }
+}

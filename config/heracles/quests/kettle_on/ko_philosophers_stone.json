@@ -1,0 +1,58 @@
+{
+    "display": {
+        "title": {
+            "translate": "quest.engineers_tea.kettle_on.ko_philosophers_stone.title"
+        },
+        "subtitle": {
+            "translate": "quest.engineers_tea.kettle_on.ko_philosophers_stone.subtitle"
+        },
+        "description": [
+            "ProjectE speeds up the boring parts: iron, copper, zinc, wood, stone and crops.",
+            "",
+            "ProjectE acelera lo aburrido: hierro, cobre, zinc, madera, piedra y cultivos."
+        ],
+        "icon": {
+            "type": "heracles:item",
+            "item": {
+                "id": "projecte:philosophers_stone",
+                "count": 1
+            }
+        },
+        "groups": {
+            "Kettle On": {
+                "position": [
+                    40,
+                    40
+                ]
+            }
+        }
+    },
+    "settings": {
+        "individual_progress": true,
+        "hidden": "LOCKED",
+        "unlockNotification": true,
+        "showDependencyArrow": true,
+        "repeatable": false,
+        "autoClaimRewards": false
+    },
+    "dependencies": [
+        "ko_welcome"
+    ],
+    "tasks": {
+        "stone": {
+            "type": "heracles:item",
+            "item": "projecte:philosophers_stone",
+            "amount": 1,
+            "collection": "AUTOMATIC"
+        }
+    },
+    "rewards": {
+        "glow": {
+            "type": "heracles:item",
+            "item": {
+                "id": "minecraft:glowstone_dust",
+                "count": 8
+            }
+        }
+    }
+}

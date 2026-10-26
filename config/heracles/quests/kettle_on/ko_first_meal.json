@@ -1,0 +1,56 @@
+{
+    "display": {
+        "title": {
+            "translate": "quest.engineers_tea.kettle_on.ko_first_meal.title"
+        },
+        "subtitle": {
+            "translate": "quest.engineers_tea.kettle_on.ko_first_meal.subtitle"
+        },
+        "description": [
+            "Cook a vegetable soup. A full stomach makes every trip safer.",
+            "",
+            "Cocina una sopa de verduras. Con el estómago lleno, cada viaje es más seguro."
+        ],
+        "icon": {
+            "type": "heracles:item",
+            "item": {
+                "id": "farmersdelight:vegetable_soup",
+                "count": 1
+            }
+        },
+        "groups": {
+            "Kettle On": {
+                "position": [
+                    120,
+                    0
+                ]
+            }
+        }
+    },
+    "settings": {
+        "individual_progress": true,
+        "hidden": "LOCKED",
+        "unlockNotification": true,
+        "showDependencyArrow": true,
+        "repeatable": false,
+        "autoClaimRewards": false
+    },
+    "dependencies": [
+        "ko_cooking_pot"
+    ],
+    "tasks": {
+        "soup": {
+            "type": "heracles:item",
+            "item": "farmersdelight:vegetable_soup",
+            "amount": 1,
+            "collection": "AUTOMATIC"
+        }
+    },
+    "rewards": {
+        "xp": {
+            "type": "heracles:xp",
+            "xptype": "LEVEL",
+            "amount": 3
+        }
+    }
+}

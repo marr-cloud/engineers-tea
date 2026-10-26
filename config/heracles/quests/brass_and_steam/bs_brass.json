@@ -1,0 +1,58 @@
+{
+    "display": {
+        "title": {
+            "translate": "quest.engineers_tea.brass_and_steam.bs_brass.title"
+        },
+        "subtitle": {
+            "translate": "quest.engineers_tea.brass_and_steam.bs_brass.subtitle"
+        },
+        "description": [
+            "Mix copper and zinc in a heated basin. Brass opens the next tier of Create.",
+            "",
+            "Mezcla cobre y zinc en una cuenca calentada. El latón abre el siguiente nivel de Create."
+        ],
+        "icon": {
+            "type": "heracles:item",
+            "item": {
+                "id": "create:brass_ingot",
+                "count": 1
+            }
+        },
+        "groups": {
+            "Brass & Steam": {
+                "position": [
+                    0,
+                    0
+                ]
+            }
+        }
+    },
+    "settings": {
+        "individual_progress": true,
+        "hidden": "LOCKED",
+        "unlockNotification": true,
+        "showDependencyArrow": true,
+        "repeatable": false,
+        "autoClaimRewards": false
+    },
+    "dependencies": [
+        "ko_press"
+    ],
+    "tasks": {
+        "brass": {
+            "type": "heracles:item",
+            "item": "create:brass_ingot",
+            "amount": 8,
+            "collection": "AUTOMATIC"
+        }
+    },
+    "rewards": {
+        "zinc": {
+            "type": "heracles:item",
+            "item": {
+                "id": "create:zinc_ingot",
+                "count": 8
+            }
+        }
+    }
+}
