@@ -15,3 +15,5 @@ All notable changes to this modpack are documented here. The format follows [Kee
 ### Fixed
 
 - Server-only mods are included in the `.mrpack` (from BastionPack: `task build` no longer passes `--no-server`).
+- Boss keys (Wrought Core, Glacial Heart, Gauntlet Core, Infernal Ember): every player near a chapter boss gets one when it dies; they show their source and unlock in the tooltip, in English and Spanish.
+- ProjectE on a leash: Dark Matter needs the Wrought Core; EMC collectors, relays and the Harvest Goddess Band need the Glacial Heart; Red Matter, Swiftwolf's Rending Gale (flight) and the Watch of Flowing Time need the Gauntlet Core. Create intermediates (andesite alloy, brass, sheets, mechanisms) have no EMC.
