@@ -613,6 +613,47 @@
             ]
         },
         {
+            "pakku_id": "9nyLjZnjk3eq0SnX",
+            "type": "MOD",
+            "side": "SERVER",
+            "slug": {
+                "modrinth": "dimworldborder"
+            },
+            "name": {
+                "modrinth": "DimWorldBorder"
+            },
+            "id": {
+                "modrinth": "KNfZi3IU"
+            },
+            "files": [
+                {
+                    "type": "modrinth",
+                    "file_name": "dimworldborder-1.21.1-1.1.1-universal.jar",
+                    "mc_versions": [
+                        "1.21.1",
+                        "1.21.2",
+                        "1.21.3",
+                        "1.21.4"
+                    ],
+                    "loaders": [
+                        "fabric",
+                        "neoforge"
+                    ],
+                    "release_type": "release",
+                    "url": "https://cdn.modrinth.com/data/KNfZi3IU/versions/gfbd1zeB/dimworldborder-1.21.1-1.1.1-universal.jar",
+                    "id": "gfbd1zeB",
+                    "parent_id": "KNfZi3IU",
+                    "hashes": {
+                        "sha512": "faca6a871a1822eaf7456e3127e51b238891a72046d729782fad12dbdfb6e5445f3c2f08845127cb71d3846c855ec3d2f9caed76c91b4d447522ebda9f55c2d2",
+                        "sha1": "fda25f75c293c204de0161b38853ec730a846726"
+                    },
+                    "required_dependencies": [],
+                    "size": 283311,
+                    "date_published": "2026-07-27T13:43:00.159023Z"
+                }
+            ]
+        },
+        {
             "pakku_id": "v6jegRMTDoV6gnro",
             "type": "MOD",
             "side": "BOTH",
