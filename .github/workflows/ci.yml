@@ -21,7 +21,7 @@ jobs:
               with:
                   fetch-depth: 0
 
-            - uses: jdx/mise-action@v5.2.2
+            - uses: jdx/mise-action@v5.2.4
 
             - name: Cache Pakku downloads
               uses: actions/cache@v6.1.0
