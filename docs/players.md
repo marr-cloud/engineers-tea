@@ -18,6 +18,10 @@ The group server uses Ely.by accounts. Use a launcher with Ely.by login (the hos
 2. Add the server address the host gave you (a playit.gg address) in Multiplayer.
 3. Join. If it says mods are missing or mismatched, see [server-rejects-connection](guides/server-rejects-connection.md).
 
+## When you die
+
+You are knocked out first (Hardcore Revival): a timer starts and a friend can get you back up by holding right-click on you. If nobody reaches you in time, or you press the give-up button, you die normally and a grave (GraveStone) keeps your items where you fell.
+
 ## Optional client mods
 
 Purely visual or UI mods that run only on your side are safe to add yourself in the launcher: shader support (Iris, if your graphics card can take it; the pack does not include it), cosmetic or tooltip mods. A minimap is already included. Mods that add blocks, items, mobs or recipes must also be on the server, so do not add those. If unsure, ask the host. Remove the extra mods before reporting a bug.

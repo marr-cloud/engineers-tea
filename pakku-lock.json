@@ -976,6 +976,48 @@
             ]
         },
         {
+            "pakku_id": "D2Ci3jYRdEnbVltM",
+            "pakku_links": [
+                "iHGiSCJnGSlXHihR"
+            ],
+            "type": "MOD",
+            "side": "BOTH",
+            "slug": {
+                "modrinth": "hardcore-revival"
+            },
+            "name": {
+                "modrinth": "Hardcore Revival"
+            },
+            "id": {
+                "modrinth": "HqKoXaXz"
+            },
+            "files": [
+                {
+                    "type": "modrinth",
+                    "file_name": "hardcorerevival-neoforge-1.21.1-21.1.22.jar",
+                    "mc_versions": [
+                        "1.21.1"
+                    ],
+                    "loaders": [
+                        "neoforge"
+                    ],
+                    "release_type": "release",
+                    "url": "https://cdn.modrinth.com/data/HqKoXaXz/versions/uz0zlIe3/hardcorerevival-neoforge-1.21.1-21.1.22.jar",
+                    "id": "uz0zlIe3",
+                    "parent_id": "HqKoXaXz",
+                    "hashes": {
+                        "sha512": "5e29cf3d17747e374b373e5430a432e3ae77d3470fad4391d3656238c160d4f574e00db27428ac66c08c4f57b7099fe390e126a1c3fa5e923891f1a958516c9b",
+                        "sha1": "bd5078ded1d24c2ca5a8f5cf82faa739743aec7e"
+                    },
+                    "required_dependencies": [
+                        "MBAkmtvl"
+                    ],
+                    "size": 250676,
+                    "date_published": "2026-09-08T13:22:24.208062Z"
+                }
+            ]
+        },
+        {
             "pakku_id": "VmyGVU5HZcQDzPQd",
             "type": "MOD",
             "side": "CLIENT",

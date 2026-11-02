@@ -189,7 +189,8 @@ in the PR):
   add-ons with effect foods (More Delight, Expanded Delight), Create add-ons that fit the
   tiers (Create Enchantment Industry, Create Crafts & Additions, Create Deco, Create Stuff
   'N Additions).
-- Anti-frustration and QoL: a grave mod (Corpse or GraveStone), Waystones (travel back to
+- Anti-frustration and QoL: a grave mod (Corpse or GraveStone), Hardcore Revival (knock-out
+  state so friends can revive you; added during 0.1 at the user's request), Waystones (travel back to
   dungeons), a minimap/world map (Xaero's or JourneyMap), Sophisticated Backpacks/Storage,
   AppleSkin, Open Parties and Claims.
 - ProjectE Integration (EMC for other mods' recipes) if it works with the fork.
