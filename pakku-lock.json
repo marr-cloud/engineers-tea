@@ -254,7 +254,7 @@
             "files": [
                 {
                     "type": "modrinth",
-                    "file_name": "jei-1.21.1-neoforge-19.70.0.460.jar",
+                    "file_name": "jei-1.21.1-neoforge-19.70.0.469.jar",
                     "mc_versions": [
                         "1.21",
                         "1.21.1"
@@ -263,18 +263,18 @@
                         "neoforge"
                     ],
                     "release_type": "beta",
-                    "url": "https://cdn.modrinth.com/data/u6dRKJwZ/versions/u8LQk1jf/jei-1.21.1-neoforge-19.70.0.460.jar",
-                    "id": "u8LQk1jf",
+                    "url": "https://cdn.modrinth.com/data/u6dRKJwZ/versions/1vC6z8wV/jei-1.21.1-neoforge-19.70.0.469.jar",
+                    "id": "1vC6z8wV",
                     "parent_id": "u6dRKJwZ",
                     "hashes": {
-                        "sha512": "2e2221b3979dbda313bd61b09a625d6edfa6c7644a0e9a7a791d25896a1b60c12fdd69aded150609cb1b78946bb9153011b8e4218fb1d535398503e00f429a33",
-                        "sha1": "28f60e82131464f4093f5400df6c0c04915ffb38"
+                        "sha512": "65e9ed5d032e6f284dbdc7f5a41ca43f35ffb9e086419105ee6b360333b1349dc5967bf6ca250f8f02adf73326318945b6c4e57624c0e0a09fc566731e328bc1",
+                        "sha1": "363f10ce1d8918381a125cc1e8d800caf1bcb40e"
                     },
                     "required_dependencies": [
                         "7tEfOcA7"
                     ],
-                    "size": 4735620,
-                    "date_published": "2026-10-25T14:13:50.873633Z"
+                    "size": 4784333,
+                    "date_published": "2026-11-01T09:41:58.129093Z"
                 }
             ]
         },
@@ -298,7 +298,7 @@
             "files": [
                 {
                     "type": "modrinth",
-                    "file_name": "kubejs-neoforge-2101.7.2-build.377.jar",
+                    "file_name": "kubejs-neoforge-2101.7.2-build.381.jar",
                     "mc_versions": [
                         "1.21",
                         "1.21.1"
@@ -307,19 +307,19 @@
                         "neoforge"
                     ],
                     "release_type": "release",
-                    "url": "https://cdn.modrinth.com/data/umyGl7zF/versions/THIGFPwf/kubejs-neoforge-2101.7.2-build.377.jar",
-                    "id": "THIGFPwf",
+                    "url": "https://cdn.modrinth.com/data/umyGl7zF/versions/GDXCpKlp/kubejs-neoforge-2101.7.2-build.381.jar",
+                    "id": "GDXCpKlp",
                     "parent_id": "umyGl7zF",
                     "hashes": {
-                        "sha512": "fcdbee8790f8f39c106ab4bf606808c9c5bf0f13a41e216207a6fe4d15bf4a5722ce57078781e3a1823e7fdd2928e8e042d104d8ae255a36db8f12a9f46d8089",
-                        "sha1": "7313fcd99318834c642ee9f3a05ed7fd7bcb6ef4"
+                        "sha512": "f8286f9f371d0c1fb2b37e56b1dbb359dcfc5a9064a7384cbf6722450f5b5a77f05f55688d7a338b500a6f49590d51e3d3541664dfc0296e50fe573a34e5a529",
+                        "sha1": "b282ba250cdd247f319c016df02ff9e600caadb1"
                     },
                     "required_dependencies": [
                         "sk9knFPE",
                         "iHLDc0eo"
                     ],
-                    "size": 2294111,
-                    "date_published": "2026-09-09T12:27:24.922502Z"
+                    "size": 2295092,
+                    "date_published": "2026-11-01T15:40:10.497679Z"
                 }
             ]
         },
@@ -376,7 +376,7 @@
             "files": [
                 {
                     "type": "modrinth",
-                    "file_name": "mezz_config-1.21.1-neoforge-0.6.9-standalone.jar",
+                    "file_name": "mezz_config-1.21.1-neoforge-0.6.10-standalone.jar",
                     "mc_versions": [
                         "1.21.1"
                     ],
@@ -384,16 +384,16 @@
                         "neoforge"
                     ],
                     "release_type": "beta",
-                    "url": "https://cdn.modrinth.com/data/7tEfOcA7/versions/RdGonQpr/mezz_config-1.21.1-neoforge-0.6.9-standalone.jar",
-                    "id": "RdGonQpr",
+                    "url": "https://cdn.modrinth.com/data/7tEfOcA7/versions/sL7Ghaz1/mezz_config-1.21.1-neoforge-0.6.10-standalone.jar",
+                    "id": "sL7Ghaz1",
                     "parent_id": "7tEfOcA7",
                     "hashes": {
-                        "sha512": "2a20fdcca268c0f80547806582c94d79de6d339aabd3714af4bc5cf25ce983028f72ae707d52b44786adeb4e4c1976bebd7dbc4a75a3bf4575ec44c2bcd28dc3",
-                        "sha1": "a20ecb9978bd8eebd40f4548d14b0a360a63f8a4"
+                        "sha512": "f9848590311ae1f2c9a20efcfd7485846a011deccf85c2eee17cbed141b8d88f3e62e3733bbf0cd6b0714f59deca5470f50780750358d3ae2b1fd6597b209ccb",
+                        "sha1": "12beda0b388b97b9d49df76b6d9c8acde7f913e3"
                     },
                     "required_dependencies": [],
-                    "size": 345479,
-                    "date_published": "2026-10-25T07:55:49.559101Z"
+                    "size": 346260,
+                    "date_published": "2026-10-30T15:02:13.674539Z"
                 }
             ]
         },
