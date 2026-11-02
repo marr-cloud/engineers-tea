@@ -31,6 +31,8 @@ Set in the repo under Settings, Secrets and variables, Actions.
 | `CURSEFORGE_TOKEN`    | secret           | CurseForge upload.                               |
 | `CURSEFORGE_ID`       | variable         | CurseForge project id.                           |
 
+Dependabot (`.github/dependabot.yml`) also opens weekly PRs for GitHub Actions, npm dev dependencies and the pinned Docker images in `server/compose.yaml`.
+
 Repository setting **Allow GitHub Actions to create and approve pull requests** (Settings, Actions, General) must be on for the weekly update PR to be created with `GITHUB_TOKEN`.
 
 Missing optional secrets never fail a build. See [first-modrinth-release](../guides/first-modrinth-release.md) and [enable-curseforge](../guides/enable-curseforge.md).
