@@ -57,7 +57,7 @@ export async function build(opts: {
 
     // Clear stale artifacts so we can never return one from a previous build (keep build/.cache).
     await rm(modrinthDir, { recursive: true, force: true });
-    if (opts.serverpack) await rm(serverDir, { recursive: true, force: true });
+    await rm(serverDir, { recursive: true, force: true });
 
     // Restore the exact original bytes; `pakku cfg` rewrites the file in its own format.
     const original = await readFile(configFile);
@@ -82,8 +82,9 @@ export async function build(opts: {
                 docs: EXPORT_DOCS,
             });
         }
-        const args = opts.serverpack ? ["export"] : ["export", "--no-server"];
-        const exp = await runPakku(args, { cwd: opts.root, inherit: true });
+        // Never `--no-server`: besides skipping the serverpack it drops side SERVER projects from
+        // the .mrpack, and the local server installs from the .mrpack.
+        const exp = await runPakku(["export"], { cwd: opts.root, inherit: true });
         if (exp.code !== 0) {
             throw new BastionError(`pakku export failed (exit ${exp.code})`, {
                 hint:
@@ -121,7 +122,10 @@ export async function build(opts: {
             docs: EXPORT_DOCS,
         });
     }
-    if (!opts.serverpack) return { mrpack };
+    if (!opts.serverpack) {
+        await rm(serverDir, { recursive: true, force: true });
+        return { mrpack };
+    }
     const serverpack = await findFile(serverDir, ".zip");
     if (!serverpack) {
         throw new BastionError("pakku export finished but produced no serverpack zip", {

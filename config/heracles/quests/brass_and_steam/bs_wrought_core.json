@@ -1,0 +1,54 @@
+{
+    "display": {
+        "title": "{\"translate\":\"quest.engineers_tea.brass_and_steam.bs_wrought_core.title\"}",
+        "subtitle": "{\"translate\":\"quest.engineers_tea.brass_and_steam.bs_wrought_core.subtitle\"}",
+        "description": [
+            "Dark Matter now needs a Wrought Core. Burn one in the transmutation table to learn it, then make more from EMC. Chapter 3 arrives in the next update.",
+            "",
+            "La Materia Oscura ahora necesita un Núcleo Forjado. Quema uno en la mesa de transmutación para aprenderlo y luego crea más con EMC. El capítulo 3 llega en la próxima actualización."
+        ],
+        "icon": {
+            "type": "heracles:item",
+            "item": {
+                "id": "engineers_tea:wrought_core",
+                "count": 1
+            }
+        },
+        "groups": {
+            "Brass & Steam": {
+                "position": [
+                    120,
+                    80
+                ]
+            }
+        }
+    },
+    "settings": {
+        "individual_progress": true,
+        "hidden": "LOCKED",
+        "unlockNotification": true,
+        "showDependencyArrow": true,
+        "repeatable": false,
+        "autoClaimRewards": false
+    },
+    "dependencies": [
+        "bs_wroughtnaut"
+    ],
+    "tasks": {
+        "core": {
+            "type": "heracles:item",
+            "item": "engineers_tea:wrought_core",
+            "amount": 1,
+            "collection": "AUTOMATIC"
+        }
+    },
+    "rewards": {
+        "fuel": {
+            "type": "heracles:item",
+            "item": {
+                "id": "projecte:aeternalis_fuel",
+                "count": 2
+            }
+        }
+    }
+}

@@ -32,7 +32,7 @@ It asks for the pack name, author, description, Modrinth slug, the Minecraft nic
 
 Crash Assistant's reference mod list, `config/crash_assistant/modlist.json`, appears after a creator first launches the game. Commit it: crash reports diff the player's mods against it to show what they added or removed.
 
-Replace the pack icon, `kubejs/config/packicon.png` (KubeJS shows it as the game window icon), with your own. The template ships the BastionPack icon; its Aseprite source is `docs/assets/bastionpack-icon.aseprite`.
+Replace the pack icon, `kubejs/config/packicon.png` (KubeJS shows it as the game window icon), with your own. This pack ships the Engineer's Tea icon; its Aseprite source is `docs/assets/engineers-tea-icon.aseprite`.
 
 ## 4. Create the Prism instance files
 

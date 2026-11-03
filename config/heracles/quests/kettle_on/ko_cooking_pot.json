@@ -1,0 +1,54 @@
+{
+    "display": {
+        "title": "{\"translate\":\"quest.engineers_tea.kettle_on.ko_cooking_pot.title\"}",
+        "subtitle": "{\"translate\":\"quest.engineers_tea.kettle_on.ko_cooking_pot.subtitle\"}",
+        "description": [
+            "Cooking pot meals give Comfort and Nourishment: your best preparation for a boss fight.",
+            "",
+            "Las comidas de la olla dan Comfort y Nourishment: tu mejor preparación para pelear con un jefe."
+        ],
+        "icon": {
+            "type": "heracles:item",
+            "item": {
+                "id": "farmersdelight:cooking_pot",
+                "count": 1
+            }
+        },
+        "groups": {
+            "Kettle On": {
+                "position": [
+                    80,
+                    0
+                ]
+            }
+        }
+    },
+    "settings": {
+        "individual_progress": true,
+        "hidden": "LOCKED",
+        "unlockNotification": true,
+        "showDependencyArrow": true,
+        "repeatable": false,
+        "autoClaimRewards": false
+    },
+    "dependencies": [
+        "ko_cutting_board"
+    ],
+    "tasks": {
+        "pot": {
+            "type": "heracles:item",
+            "item": "farmersdelight:cooking_pot",
+            "amount": 1,
+            "collection": "AUTOMATIC"
+        }
+    },
+    "rewards": {
+        "rice": {
+            "type": "heracles:item",
+            "item": {
+                "id": "farmersdelight:rice",
+                "count": 4
+            }
+        }
+    }
+}

@@ -380,6 +380,12 @@ Each entry is symptom, cause, fix.
 - Cause: a broken relative link, a `task <name>` that does not exist, a troubleshooting anchor referenced by a script or workflow but missing here, or a page missing its "Use this when" opening or "Verify it worked" section.
 - Fix: fix each listed line. When you add a new error with `docs: …#some-anchor`, add a heading here whose text slugs to `some-anchor` (lowercase, spaces to `-`, punctuation dropped).
 
+### Content check
+
+- Symptom: `task check` reports `content check found N problem(s)`.
+- Cause: a key that exists in one of `kubejs/assets/engineers_tea/lang/{en_us,es_es,es_mx}.json` but not the others, an `engineers_tea:` item registered in `kubejs/startup_scripts/` without a name in `en_us.json` or a texture in `kubejs/assets/engineers_tea/textures/item/`, or a quest under `config/heracles/quests/` using a `translate` key that `en_us.json` lacks.
+- Fix: add the listed key or texture. Keep the three lang files with the same keys (Spanish text can be identical in `es_es` and `es_mx`).
+
 ## Verify it worked
 
 Run `task doctor`: no `error` lines and the original command succeeds. For docs, `task check` passes.

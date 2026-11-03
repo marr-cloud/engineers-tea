@@ -54,7 +54,6 @@ test("build returns the mrpack path from a root with spaces and apostrophes", as
     assert.equal(out.mrpack, join(root, "build", "modrinth", "x.mrpack"));
     assert.equal(out.serverpack, undefined);
     assert.deepEqual(calls[1], ["cfg", "-v", "1.0.0"]);
-    assert.ok(calls[2]?.includes("--no-server"));
     assert.equal(readFileSync(join(root, "pakku.json"), "utf8"), original);
 });
 
@@ -157,4 +156,23 @@ test("build stops with a clear error when the fetch fails", async () => {
         (e: unknown) => e instanceof BastionError && /pakku fetch failed/.test(e.message),
     );
     assert.equal(readFileSync(join(root, "pakku.json"), "utf8"), original);
+});
+
+// `pakku export --no-server` also drops side SERVER projects from the .mrpack, so a server
+// installed from it (itzg MODRINTH_MODPACK) would miss worldgen and other server-only mods.
+test("build never passes --no-server, so server-side mods stay in the mrpack", async () => {
+    const calls: string[][] = [];
+    const r = runner(() => writeOut("modrinth/x.mrpack"), calls);
+    await build({ root, version: "1.0.0", serverpack: false, pakkuRunner: r });
+    assert.deepEqual(
+        calls.find((a) => a[0] === "export"),
+        ["export"],
+    );
+});
+
+test("without serverpack the serverpack zip Pakku writes is removed", async () => {
+    const r = runner(() => writeOut("modrinth/x.mrpack", "serverpack/s.zip"));
+    const out = await build({ root, version: "1.0.0", serverpack: false, pakkuRunner: r });
+    assert.equal(out.serverpack, undefined);
+    assert.ok(!existsSync(join(root, "build", "serverpack")));
 });

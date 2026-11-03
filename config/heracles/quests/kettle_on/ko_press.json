@@ -1,0 +1,54 @@
+{
+    "display": {
+        "title": "{\"translate\":\"quest.engineers_tea.kettle_on.ko_press.title\"}",
+        "subtitle": "{\"translate\":\"quest.engineers_tea.kettle_on.ko_press.subtitle\"}",
+        "description": [
+            "The mechanical press makes sheets. Most of chapter 2 starts here.",
+            "",
+            "La prensa mecánica hace láminas. Casi todo el capítulo 2 empieza aquí."
+        ],
+        "icon": {
+            "type": "heracles:item",
+            "item": {
+                "id": "create:mechanical_press",
+                "count": 1
+            }
+        },
+        "groups": {
+            "Kettle On": {
+                "position": [
+                    120,
+                    -40
+                ]
+            }
+        }
+    },
+    "settings": {
+        "individual_progress": true,
+        "hidden": "LOCKED",
+        "unlockNotification": true,
+        "showDependencyArrow": true,
+        "repeatable": false,
+        "autoClaimRewards": false
+    },
+    "dependencies": [
+        "ko_water_wheel"
+    ],
+    "tasks": {
+        "press": {
+            "type": "heracles:item",
+            "item": "create:mechanical_press",
+            "amount": 1,
+            "collection": "AUTOMATIC"
+        }
+    },
+    "rewards": {
+        "iron": {
+            "type": "heracles:item",
+            "item": {
+                "id": "minecraft:iron_ingot",
+                "count": 8
+            }
+        }
+    }
+}

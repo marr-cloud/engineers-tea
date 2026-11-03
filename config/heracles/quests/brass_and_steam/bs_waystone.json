@@ -1,0 +1,54 @@
+{
+    "display": {
+        "title": "{\"translate\":\"quest.engineers_tea.brass_and_steam.bs_waystone.title\"}",
+        "subtitle": "{\"translate\":\"quest.engineers_tea.brass_and_steam.bs_waystone.subtitle\"}",
+        "description": [
+            "Place a waystone at home and next to dungeons you want to come back to.",
+            "",
+            "Pon un waystone en casa y junto a las mazmorras a las que quieras volver."
+        ],
+        "icon": {
+            "type": "heracles:item",
+            "item": {
+                "id": "waystones:waystone",
+                "count": 1
+            }
+        },
+        "groups": {
+            "Brass & Steam": {
+                "position": [
+                    80,
+                    40
+                ]
+            }
+        }
+    },
+    "settings": {
+        "individual_progress": true,
+        "hidden": "LOCKED",
+        "unlockNotification": true,
+        "showDependencyArrow": true,
+        "repeatable": false,
+        "autoClaimRewards": false
+    },
+    "dependencies": [
+        "bs_brass"
+    ],
+    "tasks": {
+        "waystone": {
+            "type": "heracles:item",
+            "item": "waystones:waystone",
+            "amount": 1,
+            "collection": "AUTOMATIC"
+        }
+    },
+    "rewards": {
+        "pearls": {
+            "type": "heracles:item",
+            "item": {
+                "id": "minecraft:ender_pearl",
+                "count": 2
+            }
+        }
+    }
+}

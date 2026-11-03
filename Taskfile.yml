@@ -41,6 +41,7 @@ tasks:
             - pnpm exec oxlint --ignore-pattern "oxlint-plugin/fixtures/**"
             - pnpm exec tsc --noEmit
             - node scripts/check-docs.ts
+            - node scripts/content.ts
 
     fix:
         desc: Apply formatting and lint fixes

@@ -14,7 +14,7 @@ Use this when you need to understand how the pack's files relate before changing
 
 ## Sides
 
-Each mod has a `side`: `CLIENT`, `SERVER` or `BOTH`. Sides decide where a mod is installed: client-only mods are skipped on the server, server-only mods are not in the client pack. Pakku reads sides from Modrinth metadata, and that is sometimes wrong (Pakku issue #131: Create is read as `SERVER`). `task doctor` catches this. An explicit override on a mod that Modrinth tags as both-sides is intentional and not flagged. Fix: [wrong-mod-side](guides/wrong-mod-side.md).
+Each mod has a `side`: `CLIENT`, `SERVER` or `BOTH`. Sides decide where a mod is installed: client-only mods are skipped on the server, and server-only mods are in the `.mrpack` marked server-only (`client: unsupported`), so launchers skip them and the server installs them. Pakku reads sides from Modrinth metadata, and that is sometimes wrong (Pakku issue #131: Create is read as `SERVER`). `task doctor` catches this. An explicit override on a mod that Modrinth tags as both-sides is intentional and not flagged. Fix: [wrong-mod-side](guides/wrong-mod-side.md).
 
 ## Overrides
 

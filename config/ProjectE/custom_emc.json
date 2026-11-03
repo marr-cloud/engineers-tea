@@ -1,0 +1,65 @@
+{
+    "comment": "Engineer's Tea: boss keys have EMC so they can be duplicated after the first kill; Create intermediates have none (0 removes EMC) so Create lines must be built. Format: ProjectE CustomEMCParser (entries of {id, emc}).",
+    "entries": [
+        {
+            "id": "engineers_tea:wrought_core",
+            "emc": 32768
+        },
+        {
+            "id": "engineers_tea:glacial_heart",
+            "emc": 131072
+        },
+        {
+            "id": "engineers_tea:gauntlet_core",
+            "emc": 524288
+        },
+        {
+            "id": "engineers_tea:infernal_ember",
+            "emc": 2097152
+        },
+        {
+            "id": "create:andesite_alloy",
+            "emc": 0
+        },
+        {
+            "id": "create:brass_ingot",
+            "emc": 0
+        },
+        {
+            "id": "create:brass_nugget",
+            "emc": 0
+        },
+        {
+            "id": "create:brass_sheet",
+            "emc": 0
+        },
+        {
+            "id": "create:iron_sheet",
+            "emc": 0
+        },
+        {
+            "id": "create:copper_sheet",
+            "emc": 0
+        },
+        {
+            "id": "create:golden_sheet",
+            "emc": 0
+        },
+        {
+            "id": "create:polished_rose_quartz",
+            "emc": 0
+        },
+        {
+            "id": "create:electron_tube",
+            "emc": 0
+        },
+        {
+            "id": "create:precision_mechanism",
+            "emc": 0
+        },
+        {
+            "id": "create:sturdy_sheet",
+            "emc": 0
+        }
+    ]
+}

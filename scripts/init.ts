@@ -128,6 +128,16 @@ This pack is built from the [BastionPack](https://github.com/marr-cloud/BastionP
 `;
 }
 
+/** Docker Compose project name for the pack's local server: lowercase letters, digits and dashes. */
+export function composeProjectName(name: string): string {
+    const slug = name
+        .toLowerCase()
+        .replace(/['’]/g, "")
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+    return slug === "" ? "minecraft-pack" : slug;
+}
+
 export function assertNotInitialized(cfg: { name: string }, force = false): void {
     if (cfg.name !== TEMPLATE_NAME && !force) {
         throw new BastionError(`This repository is already initialized as "${cfg.name}"`, {
@@ -163,6 +173,16 @@ export function applyInit(
         writeFileSync(join(root, "README.md"), renderReadme(a));
         rmSync(join(root, "docs/superpowers"), { recursive: true, force: true });
         if (caConfig !== undefined) writeFileSync(caFile, caConfig);
+
+        // Each pack gets its own Docker project, so its server never reuses another pack's world volume.
+        const composeFile = join(root, "server/compose.yaml");
+        if (existsSync(composeFile)) {
+            const compose = readFileSync(composeFile, "utf8");
+            writeFileSync(
+                composeFile,
+                compose.replace(/^name:[^\r\n]*/m, `name: ${composeProjectName(a.name)}`),
+            );
+        }
 
         const envFile = join(root, "server/.env.example");
         if (a.modrinthSlug && existsSync(envFile)) {

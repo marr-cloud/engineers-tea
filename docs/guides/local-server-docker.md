@@ -34,7 +34,7 @@ Other commands:
 
 ## World data and backups
 
-The server keeps `/data` (world, configs, installed mods) in the named volume `bastionpack_minecraft-data`, not in a folder of the repo. A bind mount from Windows makes the NeoForge install and world saves very slow on Docker Desktop.
+The server keeps `/data` (world, configs, installed mods) in the named volume `engineers-tea_minecraft-data`, not in a folder of the repo. A bind mount from Windows makes the NeoForge install and world saves very slow on Docker Desktop.
 
 Copy the world out (works while the server runs; stop it first for a consistent copy):
 
@@ -42,7 +42,23 @@ Copy the world out (works while the server runs; stop it first for a consistent 
 docker compose -f server/compose.yaml cp minecraft:/data/world server/backups/world
 ```
 
-Start over with a fresh world: `task server:down`, then `docker volume rm bastionpack_minecraft-data`.
+Start over with a fresh world: `task server:down`, then `docker volume rm engineers-tea_minecraft-data`. Never do this to the group's world.
+
+### Automatic backups
+
+The `backups` service ([itzg/mc-backup](https://github.com/itzg/docker-mc-backup)) saves the world every day at 05:00 (host time) into `server/backups/` as `.tar.zst` files and deletes those older than 7 days. It asks the server over RCON to flush and pause saving while it copies, so the copy is consistent while people play.
+
+1. Give RCON a fixed password both services share: create `server/rcon.env` (gitignored) with one line, `RCON_PASSWORD=<long random string>` (for example from `openssl rand -hex 24`).
+2. Start the server with the profile: `COMPOSE_PROFILES=backups task server:up`, or add `COMPOSE_PROFILES=backups` to `server/.env`.
+3. Change the schedule, retention or folder with `BACKUP_CRON`, `BACKUP_KEEP_DAYS` and `BACKUP_DIR` in `server/.env`.
+
+Take one now (before a risky change): `docker exec engineers-tea-backups-1 backup now`.
+
+Restore: stop the server, delete the volume's `world` folder and extract a backup into it. For example, with the server stopped:
+
+```sh
+docker run --rm -v engineers-tea_minecraft-data:/data -v "$PWD/server/backups:/backups:ro" alpine sh -c "apk add -q zstd tar && rm -rf /data/world && tar -C /data -xf /backups/<file>.tar.zst"
+```
 
 `MODRINTH_EXCLUDE_FILES` (comma-separated jar names) is a fallback to skip a file on the server. Prefer fixing the mod's `side` ([wrong-mod-side](wrong-mod-side.md)).
 

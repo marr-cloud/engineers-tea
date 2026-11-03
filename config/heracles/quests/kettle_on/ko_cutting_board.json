@@ -1,0 +1,54 @@
+{
+    "display": {
+        "title": "{\"translate\":\"quest.engineers_tea.kettle_on.ko_cutting_board.title\"}",
+        "subtitle": "{\"translate\":\"quest.engineers_tea.kettle_on.ko_cutting_board.subtitle\"}",
+        "description": [
+            "Cut crops, fish and meat into ingredients. Later, Create deployers can do it for you.",
+            "",
+            "Corta cultivos, pescado y carne en ingredientes. Más adelante, los deployers de Create lo harán por ti."
+        ],
+        "icon": {
+            "type": "heracles:item",
+            "item": {
+                "id": "farmersdelight:cutting_board",
+                "count": 1
+            }
+        },
+        "groups": {
+            "Kettle On": {
+                "position": [
+                    40,
+                    0
+                ]
+            }
+        }
+    },
+    "settings": {
+        "individual_progress": true,
+        "hidden": "LOCKED",
+        "unlockNotification": true,
+        "showDependencyArrow": true,
+        "repeatable": false,
+        "autoClaimRewards": false
+    },
+    "dependencies": [
+        "ko_welcome"
+    ],
+    "tasks": {
+        "board": {
+            "type": "heracles:item",
+            "item": "farmersdelight:cutting_board",
+            "amount": 1,
+            "collection": "AUTOMATIC"
+        }
+    },
+    "rewards": {
+        "seeds": {
+            "type": "heracles:item",
+            "item": {
+                "id": "farmersdelight:cabbage_seeds",
+                "count": 4
+            }
+        }
+    }
+}
