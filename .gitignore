@@ -34,6 +34,7 @@ pakku.jar
 .env
 server/.env
 server/backups/
+server/rcon.env
 .probe/
 
 # VSCode

@@ -11,6 +11,7 @@ All notable changes to this modpack are documented here. The format follows [Kee
 - Structures: YUNG's Better Dungeons, Mineshafts, Strongholds, Desert Temples, Jungle Temples and Nether Fortresses, Explorify, Dungeons and Taverns, Explorer's Compass.
 - Gear and quality of life: Sodium Extra (FPS counter, low-end toggles) and Reese's Sodium Options, Artifacts, Hardcore Revival (knocked out before dying, friends can revive you), GraveStone, Waystones, Xaero's Minimap and World Map, Sophisticated Backpacks, AppleSkin, Chunky and DimWorldBorder (server only).
 - `task check` validates that lang files, item textures and quest translation keys stay consistent.
+- Server: optional daily world backups (itzg/mc-backup, `backups` compose profile, 7 days kept). See the local server guide.
 - Server: playit agent pinned to 1.2.0 (plain logs in `docker logs`, clean `docker stop`).
 
 ### Fixed

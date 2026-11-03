@@ -6,6 +6,11 @@ services:
     minecraft:
         image: itzg/minecraft-server:java21
         restart: unless-stopped
+        # Optional fixed RCON password (server/rcon.env, gitignored); the backups service needs it.
+        # Without the file the image generates a random one, which is fine when backups are off.
+        env_file:
+            - path: rcon.env
+              required: false
         environment:
             EULA: "TRUE"
             TYPE: MODRINTH
@@ -36,6 +41,28 @@ services:
         restart: unless-stopped
         environment:
             SECRET_KEY: ${PLAYIT_SECRET_KEY}
+        depends_on:
+            - minecraft
+
+    backups:
+        # Daily world backups (docs/guides/local-server-docker.md#automatic-backups). Opt-in:
+        # start with `--profile backups` or set COMPOSE_PROFILES=backups; needs server/rcon.env.
+        image: itzg/mc-backup:2026.10.3
+        profiles: [backups]
+        restart: unless-stopped
+        env_file:
+            - path: rcon.env
+              required: false
+        environment:
+            CRON_SCHEDULE: ${BACKUP_CRON:-0 5 * * *}
+            PRUNE_BACKUPS_DAYS: ${BACKUP_KEEP_DAYS:-7}
+            TAR_COMPRESS_METHOD: zstd
+            RCON_HOST: minecraft
+        volumes:
+            - minecraft-data:/data:ro
+            - ${BACKUP_DIR:-./backups}:/backups
+            # Cron runs on the host's local time.
+            - /etc/localtime:/etc/localtime:ro
         depends_on:
             - minecraft
 
