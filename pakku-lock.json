@@ -376,7 +376,7 @@
             "files": [
                 {
                     "type": "modrinth",
-                    "file_name": "mezz_config-1.21.1-neoforge-0.6.10-standalone.jar",
+                    "file_name": "mezz_config-1.21.1-neoforge-0.6.11-standalone.jar",
                     "mc_versions": [
                         "1.21.1"
                     ],
@@ -384,16 +384,16 @@
                         "neoforge"
                     ],
                     "release_type": "beta",
-                    "url": "https://cdn.modrinth.com/data/7tEfOcA7/versions/sL7Ghaz1/mezz_config-1.21.1-neoforge-0.6.10-standalone.jar",
-                    "id": "sL7Ghaz1",
+                    "url": "https://cdn.modrinth.com/data/7tEfOcA7/versions/sPQlt1iR/mezz_config-1.21.1-neoforge-0.6.11-standalone.jar",
+                    "id": "sPQlt1iR",
                     "parent_id": "7tEfOcA7",
                     "hashes": {
-                        "sha512": "f9848590311ae1f2c9a20efcfd7485846a011deccf85c2eee17cbed141b8d88f3e62e3733bbf0cd6b0714f59deca5470f50780750358d3ae2b1fd6597b209ccb",
-                        "sha1": "12beda0b388b97b9d49df76b6d9c8acde7f913e3"
+                        "sha512": "38731fd657625548920c6f30c5d38e88d515888eb7d6f687a8b78d91e5ee18d6c16298432fddb8ae62f05128e560357a7c36f067d1a278c23d44d403534f9b9a",
+                        "sha1": "d67b0773b42442a5353d40394479fa760fe9d486"
                     },
                     "required_dependencies": [],
-                    "size": 346260,
-                    "date_published": "2026-10-30T15:02:13.674539Z"
+                    "size": 346826,
+                    "date_published": "2026-11-05T12:27:23.672538Z"
                 }
             ]
         },
