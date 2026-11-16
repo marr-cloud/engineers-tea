@@ -102,7 +102,7 @@
             "files": [
                 {
                     "type": "modrinth",
-                    "file_name": "entityculling-neoforge-1.11.3-mc1.21.1.jar",
+                    "file_name": "entityculling-neoforge-1.12.1-mc1.21.1.jar",
                     "mc_versions": [
                         "1.21.1"
                     ],
@@ -110,16 +110,16 @@
                         "neoforge"
                     ],
                     "release_type": "release",
-                    "url": "https://cdn.modrinth.com/data/NNAgCjsB/versions/eieYbWYb/entityculling-neoforge-1.11.3-mc1.21.1.jar",
-                    "id": "eieYbWYb",
+                    "url": "https://cdn.modrinth.com/data/NNAgCjsB/versions/DDaDZQ47/entityculling-neoforge-1.12.1-mc1.21.1.jar",
+                    "id": "DDaDZQ47",
                     "parent_id": "NNAgCjsB",
                     "hashes": {
-                        "sha512": "93e83dd690b91d610be29451b34836c9daa7e08bd952f88ffa07c62d8774bbaac2ff0c6768d2cbf1b14f47d0b86f98cef9fd341e0d29bd37207eaf4aa2abea63",
-                        "sha1": "f122f84f329793675b2625d51b77f990d7de3579"
+                        "sha512": "c1818837b0e43f67fa4cd2cfffc2d57c17e579b405b215dd627e3ea68d0c000b56a79614cd41f20451ea7a687e9e9de66afe871f0b9bcec680699445ea0d9fa3",
+                        "sha1": "75671869d5991e7fbeed77f0549501d1368d6f44"
                     },
                     "required_dependencies": [],
-                    "size": 1510075,
-                    "date_published": "2026-10-08T16:52:03.416509Z"
+                    "size": 1523607,
+                    "date_published": "2026-11-13T16:11:43.966329Z"
                 }
             ]
         },
@@ -376,7 +376,7 @@
             "files": [
                 {
                     "type": "modrinth",
-                    "file_name": "mezz_config-1.21.1-neoforge-0.6.11-standalone.jar",
+                    "file_name": "mezz_config-1.21.1-neoforge-0.7.1-standalone.jar",
                     "mc_versions": [
                         "1.21.1"
                     ],
@@ -384,16 +384,16 @@
                         "neoforge"
                     ],
                     "release_type": "beta",
-                    "url": "https://cdn.modrinth.com/data/7tEfOcA7/versions/sPQlt1iR/mezz_config-1.21.1-neoforge-0.6.11-standalone.jar",
-                    "id": "sPQlt1iR",
+                    "url": "https://cdn.modrinth.com/data/7tEfOcA7/versions/V6oWFnxW/mezz_config-1.21.1-neoforge-0.7.1-standalone.jar",
+                    "id": "V6oWFnxW",
                     "parent_id": "7tEfOcA7",
                     "hashes": {
-                        "sha512": "38731fd657625548920c6f30c5d38e88d515888eb7d6f687a8b78d91e5ee18d6c16298432fddb8ae62f05128e560357a7c36f067d1a278c23d44d403534f9b9a",
-                        "sha1": "d67b0773b42442a5353d40394479fa760fe9d486"
+                        "sha512": "e3576344d96b4734d35c7ceb969020ef728a666b771fb6da0465d08d940daff3c48352f6f3ca989edbe7fff57737d2fea4621f6422e858f95efe9fa70b46dfb2",
+                        "sha1": "2382e29c9a0f44d4f4b9baa4cb3f6a356e048e60"
                     },
                     "required_dependencies": [],
-                    "size": 346826,
-                    "date_published": "2026-11-05T12:27:23.672538Z"
+                    "size": 347249,
+                    "date_published": "2026-11-09T15:28:30.892646Z"
                 }
             ]
         },
