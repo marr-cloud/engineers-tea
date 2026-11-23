@@ -102,7 +102,7 @@
             "files": [
                 {
                     "type": "modrinth",
-                    "file_name": "entityculling-neoforge-1.12.1-mc1.21.1.jar",
+                    "file_name": "entityculling-neoforge-1.12.2-mc1.21.1.jar",
                     "mc_versions": [
                         "1.21.1"
                     ],
@@ -110,16 +110,16 @@
                         "neoforge"
                     ],
                     "release_type": "release",
-                    "url": "https://cdn.modrinth.com/data/NNAgCjsB/versions/DDaDZQ47/entityculling-neoforge-1.12.1-mc1.21.1.jar",
-                    "id": "DDaDZQ47",
+                    "url": "https://cdn.modrinth.com/data/NNAgCjsB/versions/8uamSG2K/entityculling-neoforge-1.12.2-mc1.21.1.jar",
+                    "id": "8uamSG2K",
                     "parent_id": "NNAgCjsB",
                     "hashes": {
-                        "sha512": "c1818837b0e43f67fa4cd2cfffc2d57c17e579b405b215dd627e3ea68d0c000b56a79614cd41f20451ea7a687e9e9de66afe871f0b9bcec680699445ea0d9fa3",
-                        "sha1": "75671869d5991e7fbeed77f0549501d1368d6f44"
+                        "sha512": "03d7a4484f4d05ac8ec6dafdadac1de1b7be79580e3ccb5fadc7d04ca3285355826e5f5f9e5635543ad65197e4914d0c5f3702d4b8bdb6e0f43a752c9a8b43fa",
+                        "sha1": "c99da414f58cf75b97a9e6f0f688a12e3b6ae01b"
                     },
                     "required_dependencies": [],
-                    "size": 1523607,
-                    "date_published": "2026-11-13T16:11:43.966329Z"
+                    "size": 1524256,
+                    "date_published": "2026-11-22T14:39:57.714814Z"
                 }
             ]
         },
@@ -254,7 +254,7 @@
             "files": [
                 {
                     "type": "modrinth",
-                    "file_name": "jei-1.21.1-neoforge-19.70.0.469.jar",
+                    "file_name": "jei-1.21.1-neoforge-19.76.1.481.jar",
                     "mc_versions": [
                         "1.21",
                         "1.21.1"
@@ -263,18 +263,18 @@
                         "neoforge"
                     ],
                     "release_type": "beta",
-                    "url": "https://cdn.modrinth.com/data/u6dRKJwZ/versions/1vC6z8wV/jei-1.21.1-neoforge-19.70.0.469.jar",
-                    "id": "1vC6z8wV",
+                    "url": "https://cdn.modrinth.com/data/u6dRKJwZ/versions/lDv3cHMp/jei-1.21.1-neoforge-19.76.1.481.jar",
+                    "id": "lDv3cHMp",
                     "parent_id": "u6dRKJwZ",
                     "hashes": {
-                        "sha512": "65e9ed5d032e6f284dbdc7f5a41ca43f35ffb9e086419105ee6b360333b1349dc5967bf6ca250f8f02adf73326318945b6c4e57624c0e0a09fc566731e328bc1",
-                        "sha1": "363f10ce1d8918381a125cc1e8d800caf1bcb40e"
+                        "sha512": "1e8f8cc5e00c0301cd57d9a6d3ae40b27ff511f640b3b6dceeb088fd385bf18ced30d72c52a3f17f3a061b938233c10725dadb8a5d70519456a4549cfb81eea4",
+                        "sha1": "5049346ee5d60346dab7546638601a884faa167b"
                     },
                     "required_dependencies": [
                         "7tEfOcA7"
                     ],
-                    "size": 4784333,
-                    "date_published": "2026-11-01T09:41:58.129093Z"
+                    "size": 7103608,
+                    "date_published": "2026-11-23T14:02:41.461128Z"
                 }
             ]
         },
